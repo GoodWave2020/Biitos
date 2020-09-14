@@ -33,6 +33,8 @@ Ruby 2.6.5 Rails 5.2.4
 https://docs.google.com/spreadsheets/d/16wwKR8sxm-Q8o30x6buVFDllLR5vcxwePHugEuG_kWQ/edit?usp=sharing
 ### テーブル定義
 https://docs.google.com/spreadsheets/d/1Dt5IyWLdRef8ePar9VVMylWH2-7twJJG2WjFJ9Gy780/edit?usp=sharing
+### ER図
+https://docs.google.com/spreadsheets/d/1kjWCu8uAHo0Ud9fxpyxO7CPkayP4vbM6m1mG8X4s8co/edit?usp=sharing
 ### 画面遷移図
 https://docs.google.com/spreadsheets/d/10jI90SKZRfCtVRQqNBoIjIcfjp_pAgeD56lA4QoShzM/edit?usp=sharing
 ### ワイヤーフレーム
