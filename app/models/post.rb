@@ -12,4 +12,5 @@ class Post < ApplicationRecord
     Tune: 1,
     Collabolated: 2
   }
+  belongs_to :user
 end

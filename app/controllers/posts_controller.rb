@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(processed_params)
+    @post = current_user.posts.build(processed_params)
     if @post.save
       redirect_to posts_path, notice:'投稿が追加されました。'
     else
