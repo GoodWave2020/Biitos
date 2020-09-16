@@ -1,0 +1,26 @@
+= form_with(model: @post, local: true) do |f|
+  - if @post.errors.any?
+    #error_expanation
+      h2 = @post.errors.count
+        件のエラーがあります
+      ul
+      - @post.errors.full_messages.each do |msg|
+        li = msg
+  .post_title
+    = f.label :title
+  .post_title
+    = f.text_field :title
+  .post_picture
+    = f.label :picture
+  .post_picture
+    = f.file_field :picture
+  .post_music
+    = f.label :music
+  .post_music
+    = f.file_field :music
+  .post_music_type
+    = f.label :music_type
+  .post_music_type
+    = f.select :music_type, {'Voice': 0, 'Tune': 1, 'Collabolated': 2}
+  = f.submit
+= link_to '投稿一覧へ', posts_path

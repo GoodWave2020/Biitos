@@ -7,4 +7,9 @@ class Post < ApplicationRecord
     validates :picture
     validates :type
   end
+  enum music_type: {
+    Voice: 0,
+    Tune: 1,
+    Collabolated: 2
+  }
 end
