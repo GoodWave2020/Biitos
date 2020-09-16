@@ -10,6 +10,12 @@
   </head>
 
   <body>
+    <%= link_to '新規投稿', new_post_path %>
     <%= yield %>
+    <script>
+      audiojs.events.ready(function() {
+        var as = audiojs.createAll();
+      });
+    </script>
   </body>
 </html>

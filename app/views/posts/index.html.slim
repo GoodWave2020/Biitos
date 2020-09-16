@@ -1,0 +1,11 @@
+h1 投稿一覧
+- @posts.each do |post|
+  .post_contents
+    p = post.title
+    p = image_tag post.picture.url
+    p = audio_tag post.music.mp3
+    p 曲のタイプ : #{post.music_type}
+    p = post.created_at
+    = link_to '詳細', post
+    = link_to '編集', edit_post_path(post)
+    = link_to '削除', post, method: :delete, data: { confirm: I18n.t(:Are_you_sure?) }

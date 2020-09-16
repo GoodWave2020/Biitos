@@ -5,7 +5,7 @@ class Post < ApplicationRecord
     validates :title
     validates :music
     validates :picture
-    validates :type
+    validates :music_type
   end
   enum music_type: {
     Voice: 0,
