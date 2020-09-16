@@ -45,3 +45,5 @@ https://docs.google.com/spreadsheets/d/1gpwRvZRek0DiApa-pT1f58Lk7cLqKueKPlFY5rob
 - devise
 - ransack
 - audiojs-rails
+- carrierwave-audio
+- slim-rails
