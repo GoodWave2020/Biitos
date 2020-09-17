@@ -5,7 +5,4 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name ,:icon, :profile, :artist_type])
   end
-  def after_update_path_for(resource)
-    user_path(id: current_user.id)
-  end
 end

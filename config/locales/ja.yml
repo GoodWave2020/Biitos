@@ -15,6 +15,9 @@ ja:
       index: 投稿一覧
       show: 投稿詳細
       destroy: 削除
+    user:
+      show: プロフィール
+      edit: プロフィール編集
   date:
     abbr_day_names:
     - 日

@@ -1,6 +1,7 @@
-h1 ユーザー詳細
+h1 = t('views. user.show')
 p = image_tag @user.icon.show_icon.url
 p #{t('activerecord.attributes.user.name')} : #{@user.name}
 p #{t('activerecord.attributes.user.email')} : #{@user.email}
 p #{t('activerecord.attributes.user.artist_type')} : #{@user.artist_type}
 p #{t('activerecord.attributes.user.profile')} : #{@user.profile}
+p = link_to t('views.user.edit'),  edit_user_registration_path
