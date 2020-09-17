@@ -1,5 +1,6 @@
 ---
 ja:
+  Are_you_sure?: 本当に削除しますか？
   activerecord:
     errors:
       messages:
@@ -11,9 +12,9 @@ ja:
   views:
     post:
       new: 新規投稿
-      edit: 投稿編集
+      edit: 編集
       index: 投稿一覧
-      show: 投稿詳細
+      show: 詳細
       destroy: 削除
     user:
       show: プロフィール
