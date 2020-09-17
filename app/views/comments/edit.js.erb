@@ -1,4 +1,3 @@
 $("#this_comment_<%= @comment.id %>").replaceWith("<%= j render 'comments/edit', post: @post, comment: @comment %>");
-<% flash.each do |type, message| %>
-$("#edit_messages").html("<%= message.html_safe %>")
-<% end %>
+
+$("#edit_messages").html("<%= notice %>")
