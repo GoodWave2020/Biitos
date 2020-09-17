@@ -10,4 +10,5 @@ Rails.application.routes.draw do
 
   resources :posts
   root 'posts#index'
+  resources :relationships, only: [:create, :destroy]
 end

@@ -4,7 +4,7 @@ h1 = t('views.post.index')
     .post_contents.panel-body
       .panel-heading
         = image_tag post.user.icon.icon.url
-        = post.user.name
+        = link_to post.user.name, user_path(post.user.id)
       p = post.title
       p = image_tag post.picture.thumb.url
       p = audio_tag post.music.mp3

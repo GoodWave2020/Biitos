@@ -14,4 +14,5 @@
 //= require activestorage
 //= require turbolinks
 //= require audiojs
+//= require jquery/dist/jquery.js
 //= require_tree .
