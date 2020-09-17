@@ -3,5 +3,5 @@ p = image_tag @user.icon.show_icon.url
 p #{t('activerecord.attributes.user.name')} : #{@user.name}
 p #{t('activerecord.attributes.user.email')} : #{@user.email}
 p #{t('activerecord.attributes.user.artist_type')} : #{@user.artist_type}
-p #{t('activerecord.attributes.user.profile')} : #{text_url_to_link(h(@user.profile)).html_safe}
+p #{t('activerecord.attributes.user.profile')} : #{text_url_to_link(h(safe_join(@user.profile.split("\n"),tag(:br)))).html_safe}
 p = link_to t('views.user.edit'),  edit_user_registration_path
