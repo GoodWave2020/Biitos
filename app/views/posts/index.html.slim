@@ -8,6 +8,11 @@ h1 = t('views.post.index')
       p = post.title
       p = image_tag post.picture.thumb.url
       p = audio_tag post.music.mp3
+      - unless post.user_id == current_user.id
+        - if @favorites.find_by(post_id: post.id).present?
+          = link_to 'お気に入り解除', favorite_path(id: @favorites.find_by(post_id: post.id).id), method: :delete
+        - else
+          = link_to 'お気に入り', favorites_path(post_id: post.id), method: :post
       p #{t('activerecord.attributes.post.music_type')} : #{post.music_type}
       p = post.created_at
       = link_to t('views.post.show'), post

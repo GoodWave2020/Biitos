@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   end
   root 'posts#index'
   resources :relationships, only: [:create, :destroy]
+  resources :favorites, only: [:create, :destroy]
 end

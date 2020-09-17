@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   def index
     @posts = Post.all
+    @favorites = current_user.favorites
   end
 
   def new
@@ -20,6 +21,7 @@ class PostsController < ApplicationController
   def show
     @comments = @post.comments
     @comment = @post.comments.build
+    @favorite = current_user.favorites.find_by(post_id: @post.id)
   end
 
   def edit
