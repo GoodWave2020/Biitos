@@ -6,7 +6,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   with_options presence: true do
     validates :name
-    validates :icon
     validates :artist_type
   end
   enum artist_type: {

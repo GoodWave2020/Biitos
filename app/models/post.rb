@@ -4,7 +4,6 @@ class Post < ApplicationRecord
   with_options presence: true do
     validates :title
     validates :music
-    validates :picture
     validates :music_type
   end
   enum music_type: {

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_16_094819) do
+ActiveRecord::Schema.define(version: 2020_09_17_061150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_09_16_094819) do
   create_table "posts", force: :cascade do |t|
     t.string "title", null: false
     t.text "music", null: false
-    t.text "picture", null: false
+    t.text "picture"
     t.integer "music_type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2020_09_16_094819) do
     t.string "name", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.text "icon", null: false
+    t.text "icon"
     t.text "profile"
     t.integer "artist_type", null: false
     t.string "reset_password_token"
