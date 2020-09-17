@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
   root 'posts#index'
   resources :relationships, only: [:create, :destroy]
 end

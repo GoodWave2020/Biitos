@@ -10,6 +10,13 @@ ja:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
   views:
+    public:
+      posting_succeeded: 投稿されました。
+      editting_failed: 編集に失敗しました。
+      posting_failed: 投稿できませんでした。
+      posting_destroyed: 投稿が削除されました。
+      now_editting: 編集中
+      editting_succeeded: 編集されました。
     post:
       new: 新規投稿
       edit: 編集

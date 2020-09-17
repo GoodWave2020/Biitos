@@ -4,4 +4,9 @@ p = image_tag @post.picture.url
 p = audio_tag @post.music.mp3
 p 曲のタイプ : #{@post.music_type}
 p = @post.created_at
+#edit_messages
+#comments_area
+  = render partial: 'comments/index', locals: { comments: @comments, post: @post }
+= render partial: 'comments/form', locals: { comment: @comment, post: @post }
+#flash_messages
 = link_to '投稿一覧へ', posts_path

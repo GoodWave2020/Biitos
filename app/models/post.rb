@@ -12,4 +12,5 @@ class Post < ApplicationRecord
     Collabolated: 2
   }
   belongs_to :user
+  has_many :comments, dependent: :destroy
 end
