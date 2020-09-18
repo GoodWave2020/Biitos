@@ -18,4 +18,4 @@
           = link_to t('views.post.show'), post
           - if current_user == post.user
             = link_to t('views.post.edit'), edit_post_path(post)
-            = link_to t('views.post.destroy'), post, method: :delete, data: { confirm: I18n.t(:Are_you_sure?) }
+            = link_to t('views.post.destroy'), post, method: :delete, data: { confirm: t(:Are_you_sure?) }

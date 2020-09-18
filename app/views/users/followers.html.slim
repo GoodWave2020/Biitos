@@ -1,0 +1,4 @@
+h3 #{@user.name}をフォローしているユーザー
+- @user.followers.each do |user|
+  = image_tag user.icon.icon.url
+  = link_to user.name, user_path(user.id)
