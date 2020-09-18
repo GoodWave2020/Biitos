@@ -2,7 +2,9 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.all
+    @voice_posts = Post.all.where(music_type: 'Voice').includes(:user)
+    @tune_posts = Post.all.where(music_type: 'Tune').includes(:user)
+    @collabolated_posts = Post.all.where(music_type: 'Collabolated').includes(:user)
     if user_signed_in?
       @favorites = current_user.favorites
     end
