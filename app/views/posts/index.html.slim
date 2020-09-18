@@ -10,10 +10,8 @@ h1 = t('views.post.index')
       p = audio_tag post.music.mp3
       - if user_signed_in?
         - unless post.user_id == current_user.id
-          - if @favorites.find_by(post_id: post.id).present?
-            = link_to 'お気に入り解除', favorite_path(id: @favorites.find_by(post_id: post.id).id), method: :delete
-          - else
-            = link_to 'お気に入り', favorites_path(post_id: post.id), method: :post
+          div id="like_btn_#{post.id}"
+            = render 'like_area', {post: post, favorites: @favorites}
       p #{t('activerecord.attributes.post.music_type')} : #{post.music_type}
       p = post.created_at
       - if user_signed_in?
