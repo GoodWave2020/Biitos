@@ -47,3 +47,4 @@ https://docs.google.com/spreadsheets/d/1gpwRvZRek0DiApa-pT1f58Lk7cLqKueKPlFY5rob
 - audiojs-rails
 - carrierwave-audio
 - slim-rails
+- font-awesome-sass
