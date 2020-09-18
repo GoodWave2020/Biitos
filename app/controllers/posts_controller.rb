@@ -1,8 +1,11 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+
   def index
     @posts = Post.all
-    @favorites = current_user.favorites
+    if user_signed_in?
+      @favorites = current_user.favorites
+    end
   end
 
   def new
@@ -25,6 +28,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    check_user(@post.user)
   end
 
   def update
@@ -36,6 +40,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    check_user(@post.user)
     @post.destroy
     redirect_to posts_path, notice:'投稿を削除しました。'
   end

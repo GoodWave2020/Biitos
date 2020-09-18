@@ -10,7 +10,7 @@
   .edit_post
     - if action_name == 'edit'
       p = @post.title
-      p = image_tag @post.picture.url
+      p = image_tag @post.picture.thumb.url
       p = audio_tag @post.music.mp3
       p #{t('activerecord.attributes.post.music_type')} : #{@post.music_type}
   .post_title

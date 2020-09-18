@@ -6,4 +6,11 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name ,:icon, :profile, :artist_type])
     devise_parameter_sanitizer.permit(:account_update, keys: [:name ,:icon, :profile, :artist_type])
   end
+
+  def check_user(other_user)
+    if current_user != other_user
+      flash[:notice] = t("you_can't_destroy_or_edit_other_user's_posting")
+      redirect_to posts_path
+    end
+  end
 end

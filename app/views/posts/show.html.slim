@@ -1,6 +1,6 @@
 h1 投稿詳細
 p = @post.title
-p = image_tag @post.picture.url
+p = image_tag @post.picture.thumb.url
 p = audio_tag @post.music.mp3
 p 曲のタイプ : #{@post.music_type}
 p = @post.created_at

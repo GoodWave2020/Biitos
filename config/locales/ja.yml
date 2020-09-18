@@ -1,5 +1,6 @@
 ---
 ja:
+  you_can't_destroy_or_edit_other_user's_posting: 他のユーザーの情報を編集削除はできません。
   Are_you_sure?: 本当に削除しますか？
   activerecord:
     errors:
