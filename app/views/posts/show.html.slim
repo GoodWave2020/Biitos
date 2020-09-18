@@ -3,6 +3,9 @@ p = @post.title
 p = image_tag @post.picture.thumb.url
 p = audio_tag @post.music.mp3
 p 曲のタイプ : #{@post.music_type}
+- unless @post.user_id == current_user.id
+  div id="like_btn_#{@post.id}"
+    = render 'like_area', {post: @post, favorites: @favorites}
 p = @post.created_at
 #edit_messages
 #comments_area
