@@ -15,5 +15,6 @@
 //= require turbolinks
 //= require audiojs
 //= require jquery/dist/jquery.js
+//= require jquery-ui
 //= require bootstrap/dist/js/bootstrap.min
 //= require_tree .

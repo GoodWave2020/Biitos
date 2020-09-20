@@ -6,7 +6,12 @@ p 曲のタイプ : #{@post.music_type}
 - unless @post.user_id == current_user.id
   div id="like_btn_#{@post.id}"
     = render 'like_area', {post: @post, favorites: @favorites}
-p = @post.created_at
+
+- unless @post.labels.blank?
+  ul
+    - @post.labels.each do |label|
+      li
+        = link_to label.name, posts_path(label_id: label.id)
 #edit_messages
 #comments_area
   = render partial: 'comments/index', locals: { comments: @comments, post: @post }
