@@ -1,6 +1,8 @@
 = search_form_for @q do |f|
   = f.label :title, 'Keyword'
   = f.search_field :title_or_labels_name_cont_any
+  = f.label :genre, 'ジャンル'
+  = f.select :genre_eq, options_for_select(Post.genres.keys), include_blank: true
   = f.submit '検索'
 - posts.each do |post|
   .user_post.card
