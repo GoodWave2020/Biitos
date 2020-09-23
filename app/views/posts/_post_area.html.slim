@@ -1,6 +1,6 @@
 = search_form_for @q do |f|
   = f.label :title, 'Keyword'
-  = f.search_field :title_cont
+  = f.search_field :title_or_labels_name_cont_any
   = f.submit '検索'
 - posts.each do |post|
   .user_post.card

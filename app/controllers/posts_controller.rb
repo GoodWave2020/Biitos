@@ -2,6 +2,9 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
+    if params[:q] != nil
+      params[:q][:title_or_labels_name_cont_any] = params[:q][:title_or_labels_name_cont_any].split(/[\p{blank}\s]+/)
+    end
     @q = Post.ransack(params[:q])
     @voice_posts = @q.result(distinct: true).where(music_type: 'Voice').includes(:user)
     @tune_posts = @q.result(distinct: true).where(music_type: 'Tune').includes(:user)
@@ -43,7 +46,7 @@ class PostsController < ApplicationController
       @post.save_labels(label_list)
       redirect_to posts_path, notice:'投稿が更新されました。'
     else
-      rendwer :edit
+      render :edit
     end
   end
 
