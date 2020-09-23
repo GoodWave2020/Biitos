@@ -3,5 +3,6 @@
     div id="this_comment_#{comment.id}"
     p #{image_tag comment.user.icon.icon.url} #{comment.user.name}
     = comment.body
-    = link_to t('views.post.edit'), edit_post_comment_path(post, comment), remote: true
-    = link_to t('views.post.destroy'), post_comment_path(comment.post_id, comment.id), method: :delete, remote: true, data: { confirm: t('Are_you_sure?') }
+    - if current_user == comment.user
+      = link_to t('views.post.edit'), edit_post_comment_path(post, comment), remote: true
+      = link_to t('views.post.destroy'), post_comment_path(comment.post_id, comment.id), method: :delete, remote: true, data: { confirm: t('Are_you_sure?') }
