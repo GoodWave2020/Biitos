@@ -11,6 +11,22 @@ class Post < ApplicationRecord
     Tune: 1,
     Collabolated: 2
   }
+  enum genre: [
+    :Jazz,
+    :Hiphop,
+    :RnB,
+    :Electro,
+    :Folk,
+    :Funk,
+    :House,
+    :Blues,
+    :Rock,
+    :Soul,
+    :Techno,
+    :Pop,
+    :Country,
+    :Gospel
+  ]
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
