@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.build(processed_params)
+    @post = current_user.posts.build(post_params)
     label_list = label_params[:label_list].split(',')
     if @post.save
       @post.save_labels(label_list)
@@ -39,7 +39,7 @@ class PostsController < ApplicationController
 
   def update
     label_list = label_params[:label_list].split(',')
-    if @post.update(processed_params)
+    if @post.update(post_params)
       @post.save_labels(label_list)
       redirect_to posts_path, notice:'投稿が更新されました。'
     else
@@ -55,17 +55,11 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :picture, :music, :music_type)
+    params.require(:post).permit(:title, :picture, :music, :music_type, :genre)
   end
 
   def label_params
     params.require(:post).permit(:label_list)
-  end
-
-  def processed_params
-      int_param = post_params
-      int_param[:music_type] = int_param[:music_type].to_i
-      int_param
   end
 
   def set_post

@@ -28,9 +28,13 @@
   .post_music_type
     = f.label :music_type
   .post_music_type
-    = f.select :music_type, {'Voice': 0, 'Tune': 1, 'Collabolated': 2}
+    = f.select :music_type, options_for_select(Post.music_types.keys), include_blank: true
+  .post_genre
+    = f.label :genre
+  .post_genre
+    = f.select :genre, options_for_select(Post.genres.keys), include_blank: true
   .post_label
-    = f.label :label
+    = f.label :label, 'タグ'
     ul#post-labels
     - if action_name == 'edit'
       = hidden_field_tag :label_hidden, @label_list
