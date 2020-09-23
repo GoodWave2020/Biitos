@@ -1,3 +1,7 @@
+= search_form_for @q do |f|
+  = f.label :title, 'Keyword'
+  = f.search_field :title_cont
+  = f.submit '検索'
 - posts.each do |post|
   .user_post.card
     .post_contents.card-body
