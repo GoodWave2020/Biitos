@@ -1,7 +1,7 @@
 - if current_user == @conversation.recipient
   h3 to #{@conversation.sender.name}
 - else
-  h3 to #{@conversation.sender.name}
+  h3 to #{@conversation.recipient.name}
 - if @over_ten
   = link_to '以前のメッセージ', '?m=all'
 .ui.segment

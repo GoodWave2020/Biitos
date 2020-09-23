@@ -5,4 +5,4 @@ table.table.table-hover
     - @conversations.each do |conversation|
       td
         - if conversation.target_user(current_user).present?
-          = link_to conversation.target_user(current_user).name, conversation_messages_path(conversation)
+          = link_to conversation.target_user(current_user).name, conversation_dm_messages_path(conversation)

@@ -2,7 +2,10 @@ class DmMessagesController < ApplicationController
   before_action do
     @conversation = Conversation.find(params[:conversation_id])
   end
+  before_action :authenticate_user!
+
   def index
+    check_friend(@conversation)
     @dm_messages = @conversation.dm_messages
     if @dm_messages.length > 10
       @over_ten = true
@@ -19,6 +22,7 @@ class DmMessagesController < ApplicationController
     @dm_message = @conversation.dm_messages.build
   end
   def create
+    check_friend(@conversation)
     @dm_message = @conversation.dm_messages.build(dm_message_params)
     if @dm_message.save
       redirect_to conversation_dm_messages_path(@conversation)
