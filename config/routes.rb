@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/users/profile/:id', to: 'users#show', as: 'user'
   get '/users/following/:id', to: 'users#following', as: 'following'
   get '/users/followers/:id', to: 'users#followers', as: 'followers'
+  get '/users/friends/:id', to: 'users#friend_index', as: 'friends'
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
@@ -12,6 +13,11 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
   end
+
+  resources :conversations do
+    resources :dm_messages
+  end
+
   root 'posts#index'
   resources :relationships, only: [:create, :destroy]
   resources :favorites, only: [:create, :destroy]
