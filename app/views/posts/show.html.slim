@@ -11,7 +11,7 @@ p 曲のタイプ : #{@post.music_type}
   ul
     - @post.labels.each do |label|
       li
-        = link_to label.name, posts_path(label_id: label.id)
+        = link_to label.name, posts_path(q: {title_or_labels_name_cont_any: label.name})
 #edit_messages
 #comments_area
   = render partial: 'comments/index', locals: { comments: @comments, post: @post }
