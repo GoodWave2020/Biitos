@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/users/following/:id', to: 'users#following', as: 'following'
   get '/users/followers/:id', to: 'users#followers', as: 'followers'
   get '/users/friends/:id', to: 'users#friend_index', as: 'friends'
+  get '/users/favorites/:id', to: 'users#favorites_index', as: 'favorites'
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end

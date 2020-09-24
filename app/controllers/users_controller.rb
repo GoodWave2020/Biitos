@@ -14,6 +14,10 @@ class UsersController < ApplicationController
   def friend_index
     @users = current_user.followers & current_user.following
   end
+
+  def favorites_index
+    @favorites = current_user.favorites
+  end
   private
   def set_user
     @user = User.find(params[:id])

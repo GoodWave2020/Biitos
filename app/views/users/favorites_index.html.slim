@@ -1,20 +1,5 @@
-h1 = t('views.user.show')
-p = image_tag @user.icon.show_icon.url
-- if current_user != @user
-  = render 'follow_form'
-- else
-  h5 マイページ
-= link_to 'フォロワー', followers_path(@user.id)
-= link_to 'フォロー中', following_path(@user.id)
-p = link_to 'お気に入り', favorites_path(@user.id)
-p #{t('activerecord.attributes.user.name')} : #{@user.name}
-p #{t('activerecord.attributes.user.email')} : #{@user.email}
-p #{t('activerecord.attributes.user.artist_type')} : #{@user.artist_type}
-p #{t('activerecord.attributes.user.profile')} : #{text_url_to_link(h(safe_join(@user.profile.split("\n"),tag(:br)))).html_safe}
-p = link_to t('views.user.edit'),  edit_user_registration_path if @user == current_user
-
-h4 過去の投稿
-- @user.posts.each do |post|
+h4 #{@user.name}のお気に入り投稿
+- @user.favorite_posts.each do |post|
   .user_post.card
     .post_contents.card-body
       .card-title
