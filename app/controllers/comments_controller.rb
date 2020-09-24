@@ -1,10 +1,10 @@
 class CommentsController < ApplicationController
   before_action :set_post, only: [:create, :edit, :update]
   def create
-    @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comment_params)
     respond_to do |format|
       if @comment.save
+        @post.create_notification_comment!(current_user, @comment.id)
         flash.now[:notice] = t('views.public.posting_succeeded')
         format.js { render :index }
       else

@@ -1,0 +1,11 @@
+.text-center
+  h3 通知
+  h5 = link_to destroy_all_notifications_path, method: :delete do
+    i.fas.fa-trash
+    h7 全削除
+  - notifications = @notifications.where.not(visitor_id: current_user.id)
+  - if @notifications.exists?
+    .users-index
+      = render notifications
+  - else
+    p 通知はありません

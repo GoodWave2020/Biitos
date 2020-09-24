@@ -21,4 +21,7 @@ Rails.application.routes.draw do
   root 'posts#index'
   resources :relationships, only: [:create, :destroy]
   resources :favorites, only: [:create, :destroy]
+
+  resources :notifications, only: :index
+  delete '/notifications', to: 'notifications#destroy_all', as: 'destroy_all_notifications'
 end

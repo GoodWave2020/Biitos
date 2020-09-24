@@ -17,6 +17,10 @@
       <%= link_to '友達', friends_path(current_user.id) %>
       <%= link_to 'DM一覧', conversations_path %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <% if unchecked_notifications.any? %>
+        <i class="fa fa-circle" style="color: gold;"></i>
+      <% end %>
+      <%= link_to "NOTICE", notifications_path, class: "btn-default" %>
     <% else %>
       <%= link_to "新規登録", new_user_registration_path %>
       <%= link_to "ログイン", new_user_session_path %>
