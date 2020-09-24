@@ -15,7 +15,11 @@ Rails.application.routes.draw do
   end
 
   resources :conversations do
-    resources :dm_messages
+    resources :dm_messages do
+      member do
+        get :download
+      end
+    end
   end
 
   root 'posts#index'

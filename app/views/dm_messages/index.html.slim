@@ -1,24 +1,41 @@
-- if current_user == @conversation.recipient
-  h3 to #{@conversation.sender.name}
-- else
-  h3 to #{@conversation.recipient.name}
-- if @over_ten
-  = link_to '以前のメッセージ', '?m=all'
-.ui.segment
-  - @dm_messages.each do |message|
-    - if message.body.present?
-      .item
-        .content
-          .header
-            strong = message.user.name
-            = message.dm_message_time
-            .list
-              .item
-                = message.body
-                - if message.user == current_user
-                  = message.read ? '既読' : '未読'
-= form_with(model: [@conversation, @dm_message]) do |f|
-  .field
-    = f.text_area :body, class: 'form-control'
-  = f.text_field :user_id, value: current_user.id, type: "hidden"
-  div = f.submit "send"
+.container
+  .row
+    .col-md-6
+      - if current_user == @conversation.recipient
+        h3 to #{@conversation.sender.name}
+      - else
+        h3 to #{@conversation.recipient.name}
+      - if @over_ten
+        = link_to '以前のメッセージ', '?m=all'
+      .ui.segment
+        - @dm_messages.each do |message|
+          - unless message.collab_music.present?
+            .item
+              .content
+                .header
+                  strong = message.user.name
+                  = message.dm_message_time
+                  .list
+                    .item
+                      = message.body
+                      - if message.user == current_user
+                        = message.read ? '既読' : '未読'
+      = form_with(model: [@conversation, @dm_message], local: true) do |f|
+        .field
+          = f.text_area :body, class: 'form-control'
+          = f.file_field :collab_music
+        = f.text_field :user_id, value: current_user.id, type: "hidden"
+        div = f.submit "send"
+    .col-md-6
+      - @dm_messages.each do |message|
+        - if message.collab_music.present?
+          strong = message.user.name
+          = message.dm_message_time
+          p
+            = message.body
+            - if message.user == current_user
+              = message.read ? '既読' : '未読'
+          p = audio_tag message.collab_music.mp3
+          .file-buttons
+            button.file-download-button
+              = button_to 'ダウンロード', download_conversation_dm_message_path(@conversation.id, message.id), { method: :get }

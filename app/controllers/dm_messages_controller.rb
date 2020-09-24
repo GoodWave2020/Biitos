@@ -23,15 +23,23 @@ class DmMessagesController < ApplicationController
   end
   def create
     check_friend(@conversation)
+    @dm_messages = @conversation.dm_messages
     @dm_message = @conversation.dm_messages.build(dm_message_params)
     if @dm_message.save
       redirect_to conversation_dm_messages_path(@conversation)
     else
+      flash.now[:notice] = 'コメントを入力してください'
       render 'index'
     end
   end
+  def download
+    @dm_message = DmMessage.find(params[:id])
+    data = open(URI.encode(@dm_message.file_url))
+    send_data data.read, disposition: 'attachment',
+              filename: "#{@dm_message.body}.mp3", type: @dm_message.content_type
+  end
   private
   def dm_message_params
-    params.require(:dm_message).permit(:body, :user_id)
+    params.require(:dm_message).permit(:body, :user_id, :collab_music)
   end
 end
