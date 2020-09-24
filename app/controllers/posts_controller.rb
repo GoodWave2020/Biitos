@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   def index
     if params[:q] != nil
-      params[:q][:title_or_labels_name_cont_any] = params[:q][:title_or_labels_name_cont_any].split(/[\p{blank}\s]+/)
+     params[:q][:title_or_labels_name_cont_any] = params[:q][:title_or_labels_name_cont_any].split(/[\p{blank}\s]+/)
     end
     @q = Post.ransack(params[:q])
     @voice_posts = @q.result(distinct: true).where(music_type: 'Voice').includes(:user)
