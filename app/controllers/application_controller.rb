@@ -20,6 +20,6 @@ class ApplicationController < ActionController::Base
   end
   def authenticate_user_and_flash
     authenticate_user!
-    flash.now[:notice] = 'ログインが必要です'
+    flash.now[:notice] = 'ログインが必要です' until user_signed_in?
   end
 end
