@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :show]
+  before_action :authenticate_user_and_flash, only: [:new, :edit, :update, :destroy, :show]
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name ,:icon, :profile, :artist_type])
@@ -17,5 +17,9 @@ class ApplicationController < ActionController::Base
     unless current_user == @conversation.sender || current_user == @conversation.recipient
       redirect_to posts_path, notice: '他のトークルームには入れません'
     end
+  end
+  def authenticate_user_and_flash
+    authenticate_user!
+    flash.now[:notice] = 'ログインが必要です'
   end
 end
