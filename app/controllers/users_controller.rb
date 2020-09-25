@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   def show
     @favorites = current_user.favorites
   end
