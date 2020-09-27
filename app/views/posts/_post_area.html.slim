@@ -1,10 +1,3 @@
-= search_form_for @q do |f|
-  = f.label :title, 'Keyword'
-  = f.search_field :title_or_labels_name_cont_any
-  = f.label :genre, 'ジャンル'
-  = f.select :genre_eq, options_for_select(Post.genres), include_blank: true
-  = f.submit '検索'
-  = link_to '元に戻す', posts_path
 - posts.each do |post|
   .user_post.card
     .post_contents.card-body

@@ -35,6 +35,9 @@ RSpec.describe 'ユーザー機能', type: :system do
         visit edit_user_registration_path
         expect(page).to have_content 'Edit'
       end
+      it 'タイトルの編集ができる。' do
+        
+      end
     end
   end
   describe 'ログイン機能' do

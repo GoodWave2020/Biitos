@@ -4,7 +4,7 @@ FactoryBot.define do
     email { 'test@email.com' }
     password { 'password' }
     password_confirmation { 'password' }
-    icon { 'show_icon_default.png' }
+    icon { 'app/assets/images/fallback/show_icon_default.png' }
     profile { 'test' }
     artist_type { 'Tuner' }
   end

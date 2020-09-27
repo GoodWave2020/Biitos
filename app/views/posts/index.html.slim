@@ -1,4 +1,8 @@
 h1 = t('views.post.index')
+= search_form_for @q, html: { class: "form-inline my-2 my-lg-0" } do |f|
+  = f.select :genre_eq, options_for_select(Post.genres), {include_blank: 'ジャンル'}, {class: "form-control mr-sm-2"}
+  = f.search_field :title_or_labels_name_cont_any, class: 'form-control mr-sm-2', placeholder: 'キーワード'
+  = f.submit '検索', class: 'btn btn-outline-success my-2 my-sm-0'
 ul.nav.nav-tabs
   li.nav-item
     a.nav-link.active href="#voice" data-toggle="tab" Voice
