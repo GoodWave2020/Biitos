@@ -18,3 +18,7 @@
 //= require jquery-ui
 //= require bootstrap/dist/js/bootstrap.min
 //= require_tree .
+
+audiojs.events.ready(function() {
+  var as = audiojs.createAll();
+});

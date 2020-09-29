@@ -12,3 +12,7 @@ $(document).on 'turbolinks:load', ->
     for tag in label_list
       $('#post-labels').tagit 'createTag', tag
   catch error
+  hidden_music_type = $('input:hidden[name="post[hidden_music_type]"]').val();
+  $('#post_music_type').val(hidden_music_type)
+  hidden_genre = $('input:hidden[name="post[hidden_genre]"]').val();
+  $('#post_genre').val(hidden_genre)

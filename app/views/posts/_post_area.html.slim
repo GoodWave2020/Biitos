@@ -2,12 +2,11 @@
   .user_post.card
     .post_contents.card-body
       .card-title
-        = image_tag post.user.icon.icon.url
+        = image_tag post.user.icon.icon.url, class: 'icon'
         = link_to post.user.name, user_path(post.user.id)
       .card-text
         p = post.title
         p = post.genre if post.genre != nil
-        p = image_tag post.picture.thumb.url
         p = audio_tag post.music.mp3
         - if user_signed_in?
           - unless post.user_id == current_user.id
