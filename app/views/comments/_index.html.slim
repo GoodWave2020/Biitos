@@ -1,8 +1,14 @@
 - comments.each do |comment|
   - if comment.id.present?
     div id="this_comment_#{comment.id}"
-    p #{image_tag comment.user.icon.icon.url} #{comment.user.name}
+    p
+      = image_tag comment.user.icon.icon.url, class: 'icon'
+      = link_to comment.user.name, user_path(comment.user.id)
     = comment.body
     - if current_user == comment.user
-      = link_to t('views.post.edit'), edit_post_comment_path(post, comment), remote: true
-      = link_to t('views.post.destroy'), post_comment_path(comment.post_id, comment.id), method: :delete, remote: true, data: { confirm: t('Are_you_sure?') }
+      .comment-btn
+        = link_to edit_post_comment_path(post, comment), class: 'comment-edit-link', remote: true do
+          i.far.fa-edit
+        = link_to post_comment_path(comment.post_id, comment.id), method: :delete, class: 'comment-delete-link', remote: true, data: { confirm: t('Are_you_sure?') } do
+          i.far.fa-trash-alt
+      end

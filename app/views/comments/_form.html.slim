@@ -8,7 +8,7 @@
       - @post.errors.full_messages.each do |msg|
         li = msg
   .field
-    = f.text_area :body
+    = f.text_area :body, class: 'form-control'
     = f.hidden_field :user_id, value: current_user.id
   .actions
-    = f.submit
+    = f.submit '送信', class: 'btn btn-primary'

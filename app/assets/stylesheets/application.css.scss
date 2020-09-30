@@ -19,11 +19,13 @@
  @import "font-awesome-sprockets";
  @import "font-awesome";
 
-.icon {
-  border-radius: 50%;
-  margin-right: 5px;
-}
-
-.audiojs {
-  margin: 0 auto;
+body {
+  background-color: #2e8b57;
+  .icon {
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+  .audiojs {
+    margin: 0 auto;
+  }
 }

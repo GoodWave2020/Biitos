@@ -19,6 +19,8 @@
 //= require bootstrap/dist/js/bootstrap.min
 //= require_tree .
 
-audiojs.events.ready(function() {
-  var as = audiojs.createAll();
+$(document).on('turbolinks:load', function() {
+  audiojs.events.ready(function() {
+    var as = audiojs.createAll();
+  });
 });
