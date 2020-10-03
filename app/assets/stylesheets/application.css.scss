@@ -19,13 +19,38 @@
  @import "font-awesome-sprockets";
  @import "font-awesome";
 
+.wrapper {
+  padding-top: 60px;
+}
+
 body {
-  background-color: #2e8b57;
+  background-color: #4a4c4b;
   .icon {
     border-radius: 50%;
     margin-right: 5px;
   }
   .audiojs {
     margin: 0 auto;
+  }
+
+  .navbar {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .navbar .navbar-nav .nav-link {
+    color: #fff;
+  }
+
+  .nav-link:hover {
+    color: #2DF39E;
+  }
+
+  i.fas.fa-home {
+    color: #fff;
+  }
+
+  .audiojs {
+    border-radius: 20px;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #e29aea), color-stop(0.5, #dc10b0), color-stop(0.51, #cc2cc7), color-stop(1, #991659));
   }
 }

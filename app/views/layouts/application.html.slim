@@ -1,52 +1,54 @@
 doctype html
 html
   head
-    title
-      | Biitos
+    title Biitos
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    nav.navbar.navbar-expand-lg.navbar-light.bg-dark
-      = link_to posts_path, class: 'navbar-brand' do
-        = image_tag '/assets/logo.png'
-      button.navbar-toggler[type="button" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替"]
-        span.navbar-toggler-icon
-      #Navber.collapse.navbar-collapse
-        ul.navbar-nav.ml-auto
-          - if user_signed_in?
-            li.nav-item.dropdown
-              a#navbarDropdown.nav-link.dropdown-toggle[href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
-                = image_tag current_user.icon.icon.url, class: 'icon'
-                = current_user.name
-              .dropdown-menu[aria-labelledby="navbarDropdown"]
-                = link_to user_path(current_user.id), class: 'dropdown-item' do
-                  i.fas.fa-user プロフィール
-                = link_to friends_path(current_user.id), class: 'dropdown-item' do
-                  i.fas.fa-users 友達
-                = link_to conversations_path, class: 'dropdown-item' do
-                  i.fas.fa-envelope DM
-                .dropdown-divider
-                = link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do
-                  i.fas.fa-sign-out-alt ログアウト
-            li.nav-item.active
-              = link_to posts_path, class: 'nav-link' do
-                i.fas.fa-home Home
-            li.nav-item
-              = link_to t('views.post.new'), new_post_path, class: 'nav-link'
-            li.nav-item
-              - if unchecked_notifications.any?
-                i.fa.fa-circle[style="color: gold;"]
-              = link_to notifications_path, class: "btn-default nav-link" do
-                i.far.fa-bell
-          - else
-            li.nav-item.active
-              = link_to "投稿一覧", posts_path, class: 'nav-link'
-            li.nav-item
-              = link_to "新規登録", new_user_registration_path, class: 'nav-link'
-            li.nav-item
-              = link_to "ログイン", new_user_session_path, class: 'nav-link'
-    p.notice
-      = notice
-    = yield
+    .fixed-top
+      nav.navbar.navbar-expand-lg.navbar-light
+        = link_to posts_path, class: 'navbar-brand' do
+          = image_tag '/assets/logo.png'
+        button.navbar-toggler[type="button" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替"]
+          span.navbar-toggler-icon
+        #Navber.collapse.navbar-collapse
+          ul.navbar-nav.ml-auto
+            - if user_signed_in?
+              li.nav-item.dropdown
+                a#navbarDropdown.nav-link.dropdown-toggle[href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
+                  = image_tag current_user.icon.icon.url, class: 'icon'
+                  = current_user.name
+                .dropdown-menu[aria-labelledby="navbarDropdown"]
+                  = link_to user_path(current_user.id), class: 'dropdown-item' do
+                    i.fas.fa-user プロフィール
+                  = link_to friends_path(current_user.id), class: 'dropdown-item' do
+                    i.fas.fa-users 友達
+                  = link_to conversations_path, class: 'dropdown-item' do
+                    i.fas.fa-envelope DM
+                  .dropdown-divider
+                  = link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do
+                    i.fas.fa-sign-out-alt ログアウト
+              li.nav-item.active
+                = link_to posts_path, class: 'nav-link' do
+                  i.fas.fa-home Home
+              li.nav-item
+                = link_to t('views.post.new'), new_post_path, class: 'nav-link'
+              li.nav-item
+                - if unchecked_notifications.any?
+                  i.fa.fa-circle[style="color: gold;"]
+              li.nav-item
+                = link_to notifications_path, class: "btn-default nav-link" do
+                  i.far.fa-bell
+            - else
+              li.nav-item.active
+                = link_to "投稿一覧", posts_path, class: 'nav-link'
+              li.nav-item
+                = link_to "新規登録", new_user_registration_path, class: 'nav-link'
+              li.nav-item
+                = link_to "ログイン", new_user_session_path, class: 'nav-link'
+    .wrapper
+      p.notice
+        = notice
+      = yield

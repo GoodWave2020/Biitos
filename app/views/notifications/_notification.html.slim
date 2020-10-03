@@ -4,7 +4,7 @@
   .form-inline
     span
       = link_to user_path(visitor) do
-        = image_tag visitor.icon.icon.url.to_s
+        = image_tag visitor.icon.icon.url, class: 'icon'
         strong
           = visitor.name
       = 'さんが'

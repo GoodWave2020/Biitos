@@ -1,5 +1,5 @@
 = form_with(model: @post, local: true) do |f|
-  .form_contents.row
+  div class="row #{"form_contents" if action_name == 'new'}"
     - if @post.errors.any?
       #error_expanation
         h2

@@ -5,7 +5,7 @@
         p.text-center = image_tag @post.picture.thumb.url
       .card-title
         = image_tag @post.user.icon.icon.url, class: 'icon'
-        = @post.user.name
+        = link_to @post.user.name, user_path(@post.user.id)
         .music_type_btn
           = @post.music_type
       .list-group.list-group-flush

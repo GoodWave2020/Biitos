@@ -1,38 +1,45 @@
-h1 = t('views.user.show')
-p = image_tag @user.icon.show_icon.url
-- if current_user != @user
-  = render 'follow_form'
-- else
-  h5 マイページ
-= link_to 'フォロワー', followers_path(@user.id)
-= link_to 'フォロー中', following_path(@user.id)
-p = link_to 'お気に入り', user_favorites_path(@user.id)
-p #{t('activerecord.attributes.user.name')} : #{@user.name}
-p #{t('activerecord.attributes.user.email')} : #{@user.email}
-p #{t('activerecord.attributes.user.artist_type')} : #{@user.artist_type}
-p #{t('activerecord.attributes.user.profile')} : #{text_url_to_link(h(safe_join(@user.profile.split("\n"),tag(:br)))).html_safe}
-p = link_to t('views.user.edit'),  edit_user_registration_path if @user == current_user
-
-h4 過去の投稿
-- @user.posts.each do |post|
-  .user_post.card
-    .post_contents.card-body
-      .card-title
-        = image_tag post.user.icon.icon.url
-        = link_to post.user.name, user_path(post.user.id)
-      .card-text
-        p = post.title
-        p = post.genre if post.genre != nil
-        p = image_tag post.picture.thumb.url
-        p = audio_tag post.music.mp3
-        - if user_signed_in?
-          - unless post.user_id == current_user.id
-            div id="like_btn_#{post.id}"
-              = render 'posts/like_area', {post: post, favorites: @favorites}
-        p #{t('activerecord.attributes.post.music_type')} : #{post.music_type}
-        p = post.created_at
-        - if user_signed_in?
-          = link_to t('views.post.show'), post
-          - if current_user == post.user
-            = link_to t('views.post.edit'), edit_post_path(post)
-            = link_to t('views.post.destroy'), post, method: :delete, data: { confirm: t(:Are_you_sure?) }
+.row.user_contents
+  .card.col-md-6
+    .card-title.text-center
+      h3 = @user.name
+      p.music_type_btn = @user.artist_type
+    .card-body
+      .user-profile.text-center
+        p = image_tag @user.icon.show_icon.url
+        - if current_user != @user
+          = render 'follow_form'
+        - else
+          h5.text-center マイページ
+          - if @user == current_user
+            p
+              = link_to edit_user_registration_path do
+                i.far.fa-edit #{t('views.post.edit')}
+        p.follow-link
+          = link_to 'フォロワー', followers_path(@user.id), class: 'follower_path'
+          = link_to 'フォロー中', following_path(@user.id), class: 'following_path'
+        p = link_to 'お気に入り', user_favorites_path(@user.id)
+        p #{t('activerecord.attributes.user.email')} : #{@user.email}
+        p #{t('activerecord.attributes.user.profile')} : #{text_url_to_link(h(safe_join(@user.profile.split("\n"),tag(:br)))).html_safe}
+      h4.text-center 過去の投稿
+      - @user.posts.each do |post|
+        .user_post.card
+          .post_contents.card-body
+            .card-title
+              = image_tag post.user.icon.icon.url, class: 'icon'
+              = link_to post.user.name, user_path(post.user.id)
+            .card-text
+              p = post.title
+              p = post.genre if post.genre != nil
+              p.text-center = image_tag post.picture.thumb.url
+              p = audio_tag post.music.mp3
+              - if user_signed_in?
+                - unless post.user_id == current_user.id
+                  div id="like_btn_#{post.id}"
+                    = render 'posts/like_area', {post: post, favorites: @favorites}
+              p #{t('activerecord.attributes.post.music_type')} : #{post.music_type}
+              p = post.created_at
+              - if user_signed_in?
+                = link_to t('views.post.show'), post
+                - if current_user == post.user
+                  = link_to t('views.post.edit'), edit_post_path(post)
+                  = link_to t('views.post.destroy'), post, method: :delete, data: { confirm: t(:Are_you_sure?) }

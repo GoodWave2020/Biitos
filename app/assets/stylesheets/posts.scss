@@ -3,7 +3,34 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .form_contents {
   justify-content: center;
-  align-items: center;
+}
+
+#voice-tab {
+  background-color: transparent;
+}
+
+#tune-tab {
+  background-color: transparent;
+}
+
+#collab-tab {
+  background-color: transparent;
+}
+
+.user_post {
+  color: #fff;
+}
+
+.nav-tabs .nav-link.active {
+  color: #fff;
+}
+
+.nav-tabs .nav-link {
+  color: #ffffff7a;
+}
+
+.fa-search {
+  background-color: transparent;
 }
 
 .music_type_btn {
@@ -59,6 +86,10 @@
 
 .genre-btn:hover {
   background: #555;
+}
+
+.post_contents.card-body, .search_contents.card-body {
+  background-color: #625f62;
 }
 
 .labels-list{
