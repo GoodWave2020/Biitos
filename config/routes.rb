@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'top/', to: 'top#top', as: 'top'
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
@@ -23,7 +24,7 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'posts#index'
+  root 'top#top'
   resources :relationships, only: [:create, :destroy]
   resources :favorites, only: [:create, :destroy]
 

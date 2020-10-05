@@ -1,0 +1,8 @@
+.layer.top-image
+  .top-title Biitos
+  .description 最高の出会いと最高の音楽体験を
+  .login-signup
+    = link_to "Log in", new_user_session_path, class: 'btn btn-primary login'
+    = link_to "Sign up", new_user_registration_path, class: 'btn btn-secondary signup'
+  .index-btn
+    = link_to '投稿を見てみる', posts_path, class: 'btn btn-warning'

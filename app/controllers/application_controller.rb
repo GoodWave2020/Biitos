@@ -17,4 +17,10 @@ class ApplicationController < ActionController::Base
       redirect_to posts_path, notice: '他のトークルームには入れません'
     end
   end
+  def after_sign_in_path_for(resource)
+    posts_path
+  end
+  def after_sign_out_path_for(resource)
+    top_path
+  end
 end
