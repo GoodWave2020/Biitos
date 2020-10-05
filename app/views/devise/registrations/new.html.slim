@@ -1,0 +1,36 @@
+h2.text-center Sign up
+.row.form_contents
+  .card.col-md-4
+    .card-body
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .field
+          = f.text_field :name, autofocus: true, class: 'form-control', placeholder: '名前'
+        .field
+          br
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'メールアドレス'
+        .field
+          = f.label :icon
+          br
+          = f.file_field :icon, autofocus: true, class: 'filestyle'
+        .field
+          = f.label :artist_type
+          br
+          = f.label :Voicer
+          = f.radio_button :artist_type, :Voicer
+          = f.label :Tuner
+          = f.radio_button :artist_type, :Tuner
+        .field
+          = f.text_area :profile, autofocus: true, class: 'form-control', placeholder: 'プロフィール'
+        .field
+          - if @minimum_password_length
+            = @minimum_password_length
+            |  characters minimum
+          br
+          = f.password_field :password, autocomplete: "new-password", class: 'form-control', placeholder: 'パスワード'
+        .field
+          br
+          = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', placeholder: 'パスワード確認'
+        .actions
+          = f.submit "Sign up", class: 'btn btn-primary'
+      = render "devise/shared/links"

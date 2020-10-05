@@ -1,4 +1,4 @@
-.container
+.container.dm_index
   .row
     .col-md-6
       - if current_user == @conversation.recipient
@@ -13,6 +13,7 @@
             .item
               .content
                 .header
+                  = image_tag message.user.icon.icon.url, class: 'icon'
                   strong = message.user.name
                   = message.dm_message_time
                   .list
@@ -29,6 +30,7 @@
     .col-md-6
       - @dm_messages.each do |message|
         - if message.collab_music.present?
+          = image_tag message.user.icon.icon.url, class: 'icon'
           strong = message.user.name
           = message.dm_message_time
           p

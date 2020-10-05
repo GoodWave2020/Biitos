@@ -1,5 +1,5 @@
 class DmMessagesController < ApplicationController
-  before_action :authenticate_user_and_flash
+  before_action :authenticate_user!
   before_action do
     @conversation = Conversation.find(params[:conversation_id])
   end

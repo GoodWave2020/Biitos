@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user_and_flash
+  before_action :authenticate_user!
   before_action :set_post, only: [:create, :edit, :update]
   def create
     @comment = @post.comments.build(comment_params)

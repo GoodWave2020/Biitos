@@ -49,6 +49,8 @@ html
               li.nav-item
                 = link_to "ログイン", new_user_session_path, class: 'nav-link'
     .wrapper
-      p.notice
+      p.notice.text-center
         = notice
+      p.alert.text-center
+        = alert
       = yield

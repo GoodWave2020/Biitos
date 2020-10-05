@@ -1,0 +1,47 @@
+h2.text-center Edit User
+.row.form_contents
+  .card.col-md-4
+    .card-body
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .field
+          = f.text_field :name, autofocus: true, class: 'form-control', placeholder: '名前'
+        .field
+          br
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'メールアドレス'
+        .field
+          = f.label :icon
+          br
+          = f.file_field :icon, autofocus: true, class: 'filestyle'
+        .field
+          = f.label :artist_type
+          br
+          = f.label :Voicer
+          = f.radio_button :artist_type, :Voicer
+          = f.label :Tuner
+          = f.radio_button :artist_type, :Tuner
+        .field
+          = f.text_area :profile, autofocus: true, class: 'form-control', placeholder: 'プロフィール'
+        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+          div
+            | Currently waiting confirmation for:
+            = resource.unconfirmed_email
+        .field
+          i
+            | (leave blank if you don't want to change it)
+          br
+          = f.password_field :password, autocomplete: "new-password", class: 'form-control', placeholder: 'パスワード'
+          - if @minimum_password_length
+            br
+            em
+              = @minimum_password_length
+              |  characters minimum
+        .field
+        = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', placeholder: 'パスワード確認'
+        .field
+          = f.password_field :current_password, autocomplete: "current-password", class: 'form-control', placeholder: '現在のパスワード'
+        .actions
+          = f.submit "Update", class: 'btn btn-primary'
+      h3 アカウント削除
+      p = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger'
+      = link_to "Back", :back

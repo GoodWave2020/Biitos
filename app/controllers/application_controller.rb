@@ -17,8 +17,4 @@ class ApplicationController < ActionController::Base
       redirect_to posts_path, notice: '他のトークルームには入れません'
     end
   end
-  def authenticate_user_and_flash
-    authenticate_user!
-    flash.now[:notice] = 'ログインが必要です' until user_signed_in?
-  end
 end
