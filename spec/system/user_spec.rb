@@ -36,7 +36,7 @@ RSpec.describe 'ユーザー機能', type: :system do
         expect(page).to have_content 'Edit'
       end
       it 'タイトルの編集ができる。' do
-        
+
       end
     end
   end
@@ -62,8 +62,9 @@ RSpec.describe 'ユーザー機能', type: :system do
         fill_in :user_email, with: 'test@email.com'
         fill_in :user_password, with: 'password'
         click_on "Log in"
-        click_on "ログアウト"
-        expect(page).to have_content 'ログイン'
+        find(".dropdown-toggle").click
+        click_on 'ログアウト'
+        expect(page).to have_content 'Log in'
       end
     end
   end
