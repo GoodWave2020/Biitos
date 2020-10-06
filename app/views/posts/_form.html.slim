@@ -27,12 +27,16 @@
           .post_title
             = f.label :title
             = f.text_field :title, class: 'form-control'
-          .post_picture
-            = f.label :picture
-            = f.file_field :picture, class: 'filestyle'
-          .post_music
-            = f.label :music
-            = f.file_field :music, class: 'filestyle'
+          br
+          .post_picture.row
+            #picture_form.form-control.col-sm-9
+            = f.label :picture, 'ジャケット', class: 'picture_input_btn col-sm-3'
+            = f.file_field :picture, class: 'picture_form'
+          br
+          .post_music.row
+            #music_form.form-control.col-sm-9
+            = f.label :music, '曲', class: 'music_input_btn col-sm-3'
+            = f.file_field :music, class: 'music_form'
           .post_music_type
             = f.label :music_type
             = f.select :music_type, options_for_select(Post.music_types.keys), {include_blank: true}, {class: 'form-control'}

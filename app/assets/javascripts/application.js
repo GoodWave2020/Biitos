@@ -23,4 +23,12 @@ $(document).on('turbolinks:load', function() {
   audiojs.events.ready(function() {
     var as = audiojs.createAll();
   });
+  $(document).on('change', '#post_picture', function() {
+    var picture = $('#post_picture').prop('files')[0].name;
+    $('#picture_form').html(picture)
+  });
+  $(document).on('change', '#post_music', function() {
+    var picture = $('#post_music').prop('files')[0].name;
+    $('#music_form').html(picture)
+  });
 });
