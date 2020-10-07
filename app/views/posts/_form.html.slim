@@ -30,12 +30,12 @@
           br
           .post_picture.row
             #picture_form.form-control.col-sm-9
-            = f.label :picture, 'ジャケット', class: 'picture_input_btn col-sm-3'
+            = f.label :picture, t('activerecord.attributes.post.picture'), class: 'picture_input_btn col-sm-3'
             = f.file_field :picture, class: 'picture_form'
           br
           .post_music.row
             #music_form.form-control.col-sm-9
-            = f.label :music, '曲', class: 'music_input_btn col-sm-3'
+            = f.label :music, t('activerecord.attributes.post.music'), class: 'music_input_btn col-sm-3'
             = f.file_field :music, class: 'music_form'
           .post_music_type
             = f.label :music_type
@@ -46,7 +46,7 @@
             = f.select :genre, options_for_select(Post.genres.keys), {include_blank: true}, {class: 'form-control'}
             = f.hidden_field :hidden_genre, value: @post.genre
           .post_label
-            = f.label :label, 'タグ'
+            = f.label :label, t('activerecord.attributes.label')
             ul#post-labels
             - if action_name == 'edit'
               = hidden_field_tag :label_hidden, @label_list
