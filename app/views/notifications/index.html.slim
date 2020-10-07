@@ -1,11 +1,11 @@
 .text-center
-  h3 通知
+  h3 #{t('views.notification.notifications')}
   h5 = link_to destroy_all_notifications_path, method: :delete do
     i.fas.fa-trash
-    h7 全削除
+    h7 #{t('views.notification.delete_all')}
   - notifications = @notifications.where.not(visitor_id: current_user.id)
   - if @notifications.exists?
     .users-index
       = render notifications
   - else
-    p 通知はありません
+    p #{t('views.notification.nothing_to_notify')}

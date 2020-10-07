@@ -7,26 +7,25 @@
         = image_tag visitor.icon.icon.url, class: 'icon'
         strong
           = visitor.name
-      = 'さんが'
+      = t('views.notification.sir')
       - case notification.action
       - when 'follow' then
-        = "あなたをフォローしました"
+        = t('views.notification.followed_you')
       - when 'like' then
-        = link_to 'あなたの投稿', notification.post, style: "font-weight: bold;"
-        = "にいいねしました"
+        = link_to t('views.notification.your_post'), notification.post, style: "font-weight: bold;"
+        = t('views.notification.liked')
       - when 'comment' then
         - if notification.post.user_id == visited.id
-          = link_to "あなたの投稿", notification.post, style: "font-weight: bold;"
+          = link_to t('views.notification.your_post'), notification.post, style: "font-weight: bold;"
         - else
           span
             = link_to post_path(notification.post) do
               = image_tag avatar_url(notification.post.user).to_s, class: "icon_mini"
               strong
-                = notification.post.user.name + 'さんの投稿'
-        = "にコメントしました"
-        p.text-muted.mb-0
+                = notification.post.user.name + t('views.notification.s_post')
+        = t('views.notification.commented')
+        p.text-white.mb-0.text-left
           = Comment.find_by(id: notification.comment_id)&.body
-
   .small.text-muted.text-right
     = time_ago_in_words(notification.created_at).upcase
-  hr
+    hr

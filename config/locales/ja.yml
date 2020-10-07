@@ -49,6 +49,16 @@ ja:
       past_messages: 以前のメッセージ
       read: 既読
       not_to_read: 未読
+    notification:
+      nothing_to_notify: 通知はありません。
+      delete_all: 全削除
+      notifications: 通知
+      sir: さんが
+      followed_you: あなたをフォローしました。
+      your_post: あなたの投稿
+      liked: にいいねしました。
+      s_post: さんの投稿
+      commented: にコメントしました。
   date:
     abbr_day_names:
     - 日
