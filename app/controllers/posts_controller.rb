@@ -7,6 +7,7 @@ class PostsController < ApplicationController
      params[:q][:title_or_labels_name_cont_any] = params[:q][:title_or_labels_name_cont_any].split(/[\p{blank}\s]+/)
     end
     @q = Post.ransack(params[:q])
+    @q.sorts = 'created_at desc' if @q.sorts.empty?
     @voice_posts = @q.result(distinct: true).where(music_type: 'Voice').includes(:user)
     @tune_posts = @q.result(distinct: true).where(music_type: 'Tune').includes(:user)
     @collabolated_posts = @q.result(distinct: true).where(music_type: 'Collabolated').includes(:user)
