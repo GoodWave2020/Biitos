@@ -19,7 +19,9 @@ ja:
       now_editting: 編集中
       editting_succeeded: 編集されました。
       log_out: ログアウト
-      log_in: ログイン 
+      log_in: ログイン
+      keyword: キーワード
+      search: 検索
     post:
       new: 新規投稿
       edit: 編集

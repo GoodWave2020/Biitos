@@ -22,6 +22,6 @@
           | Search
         .card-body.search_contents
           = search_form_for @q, html: { class: "form-inline my-2 my-lg-0" } do |f|
-            = f.select :genre_eq, options_for_select(Post.genres), {include_blank: 'ジャンル'}, {class: "form-control"}
-            = f.search_field :title_or_labels_name_cont_any, class: 'form-control', placeholder: 'キーワード'
-            = f.submit '検索', class: 'btn btn-outline-success my-2 my-sm-0'
+            = f.select :genre_eq, options_for_select(Post.genres), {include_blank: t('activerecord.attributes.post.genre')}, {class: "form-control"}
+            = f.search_field :title_or_labels_name_cont_any, class: 'form-control', placeholder: t('views.public.keyword')
+            = f.submit t('views.public.search'), class: 'btn btn-outline-success my-2 my-sm-0'

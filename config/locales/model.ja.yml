@@ -9,6 +9,7 @@ ja:
         picture: ジャケット
         music: 曲
         music_type: 曲のタイプ
+        genre: ジャンル
       user:
         name: 名前
         email: メールアドレス
