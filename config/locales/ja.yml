@@ -2,6 +2,7 @@
 ja:
   you_can't_destroy_or_edit_other_user's_posting: 他のユーザーの情報を編集削除はできません。
   Are_you_sure?: 本当に削除しますか？
+  you_can't_enter_other_tokeroom: 他のユーザー同士のトークルームには入れません。
   activerecord:
     errors:
       messages:
@@ -59,6 +60,12 @@ ja:
       liked: にいいねしました。
       s_post: さんの投稿
       commented: にコメントしました。
+  controller:
+    public:
+      please_fill_in_the_the_comment: コメントを入力してください。
+      the_post_added: 投稿が追加されました。
+      the_post_updated: 投稿が更新されました。
+      the_post_deleted: 投稿を削除しました。
   date:
     abbr_day_names:
     - 日

@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
   def check_friend(conversation)
     unless current_user == @conversation.sender || current_user == @conversation.recipient
-      redirect_to posts_path, notice: '他のトークルームには入れません'
+      redirect_to posts_path, notice: t("you_can't_enter_other_tokeroom")
     end
   end
   def after_sign_in_path_for(resource)

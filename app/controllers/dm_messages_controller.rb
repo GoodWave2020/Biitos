@@ -29,7 +29,7 @@ class DmMessagesController < ApplicationController
     if @dm_message.save
       redirect_to conversation_dm_messages_path(@conversation)
     else
-      flash.now[:notice] = 'コメントを入力してください'
+      flash.now[:notice] = t('controller.public.please_fill_in_the_the_comment')
       render 'index'
     end
   end
