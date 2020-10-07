@@ -18,6 +18,8 @@ ja:
       posting_destroyed: 投稿が削除されました。
       now_editting: 編集中
       editting_succeeded: 編集されました。
+      log_out: ログアウト
+      log_in: ログイン 
     post:
       new: 新規投稿
       edit: 編集
@@ -27,6 +29,7 @@ ja:
     user:
       show: プロフィール
       edit: プロフィール編集
+      new: 新規登録
   date:
     abbr_day_names:
     - 日

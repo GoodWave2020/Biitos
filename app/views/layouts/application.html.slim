@@ -23,14 +23,14 @@ html
                     = current_user.name
                   .dropdown-menu[aria-labelledby="navbarDropdown"]
                     = link_to user_path(current_user.id), class: 'dropdown-item' do
-                      i.fas.fa-user プロフィール
+                      i.fas.fa-user #{t('views.user.show')}
                     = link_to friends_path(current_user.id), class: 'dropdown-item' do
-                      i.fas.fa-users 友達
+                      i.fas.fa-users #{t('activerecord.attributes.relationship.friend')}
                     = link_to conversations_path, class: 'dropdown-item' do
-                      i.fas.fa-envelope DM
+                      i.fas.fa-envelope #{t('activerecord.attributes.conversation.index')}
                     .dropdown-divider
                     = link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do
-                      i.fas.fa-sign-out-alt ログアウト
+                      i.fas.fa-sign-out-alt #{t('views.public.log_out')}
                 li.nav-item.active
                   = link_to posts_path, class: 'nav-link' do
                     i.fas.fa-home Home
@@ -44,11 +44,11 @@ html
                     i.far.fa-bell
               - else
                 li.nav-item.active
-                  = link_to "投稿一覧", posts_path, class: 'nav-link'
+                  = link_to t('views.post.index'), posts_path, class: 'nav-link'
                 li.nav-item
-                  = link_to "新規登録", new_user_registration_path, class: 'nav-link'
+                  = link_to t('views.user.new'), new_user_registration_path, class: 'nav-link'
                 li.nav-item
-                  = link_to "ログイン", new_user_session_path, class: 'nav-link'
+                  = link_to t('views.public.log_in'), new_user_session_path, class: 'nav-link'
     div class="#{"wrapper" if action_name != 'top'}"
       - if action_name != 'top'
         p.notice.text-center
