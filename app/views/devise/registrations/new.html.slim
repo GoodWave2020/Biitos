@@ -5,10 +5,10 @@ h2.text-center Sign up
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
         = render "devise/shared/error_messages", resource: resource
         .field
-          = f.text_field :name, autofocus: true, class: 'form-control', placeholder: '名前'
+          = f.text_field :name, autofocus: true, class: 'form-control', placeholder: t('activerecord.attributes.user.name')
         .field
           br
-          = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'メールアドレス'
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: t('activerecord.attributes.user.email')
         .field
           = f.label :icon
           br
@@ -21,16 +21,16 @@ h2.text-center Sign up
           = f.label :Tuner
           = f.radio_button :artist_type, :Tuner
         .field
-          = f.text_area :profile, autofocus: true, class: 'form-control', placeholder: 'プロフィール'
+          = f.text_area :profile, autofocus: true, class: 'form-control', placeholder: t('activerecord.attributes.user.profile')
         .field
           - if @minimum_password_length
             = @minimum_password_length
             |  characters minimum
           br
-          = f.password_field :password, autocomplete: "new-password", class: 'form-control', placeholder: 'パスワード'
+          = f.password_field :password, autocomplete: "new-password", class: 'form-control', placeholder: t('activerecord.attributes.user.password')
         .field
           br
-          = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', placeholder: 'パスワード確認'
+          = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', placeholder: t('activerecord.attributes.user.password_confirmation')
         .actions
           = f.submit "Sign up", class: 'btn btn-primary'
       = render "devise/shared/links"

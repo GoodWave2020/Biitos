@@ -22,6 +22,7 @@ ja:
       log_in: ログイン
       keyword: キーワード
       search: 検索
+      delete_user: アカウント削除
     post:
       new: 新規投稿
       edit: 編集
@@ -32,6 +33,18 @@ ja:
       show: プロフィール
       edit: プロフィール編集
       new: 新規登録
+      my_page: マイページ
+      following: フォロー中
+      followers: フォロワー
+      favorite_posts: お気に入り
+      past_posts: 過去の投稿
+      friends_with_this_person: と友達のユーザー
+      following_user: がフォローしているユーザー
+      folloed_by_user: をフォローしているユーザー
+      s_favorite_posts: のお気に入り
+      leave_blank_if_you_don't_want_to_change_it: 更新する場合パスワードを入力してください。
+    conversation:
+      message_index: メッセージ一覧
   date:
     abbr_day_names:
     - 日

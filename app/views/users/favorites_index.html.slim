@@ -1,6 +1,6 @@
 h4.text-center
   = image_tag @user.icon.icon.url, class: 'icon'
-  | #{@user.name}のお気に入り投稿
+  | #{@user.name} #{t('views.user.s_favorite_posts')}
 .row.form_contents
   .col-md-6
     - @user.favorite_posts.each do |post|

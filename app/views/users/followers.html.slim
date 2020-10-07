@@ -1,4 +1,4 @@
-h2.text-center #{@user.name}をフォローしているユーザー
+h2.text-center #{@user.name} #{t('views.user.folloed_by_user')}
 hr
 - @user.followers.each do |user|
   p.relations.text-center

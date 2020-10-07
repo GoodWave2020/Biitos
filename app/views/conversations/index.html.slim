@@ -1,7 +1,7 @@
-h2.text-center メッセージ一覧
+h2.text-center #{t('views.conversation.message_index')}
 hr
 - @conversations.each do |conversation|
   - if conversation.target_user(current_user).present?
-    td.text-center
+    p.text-center
       = image_tag conversation.target_user(current_user).icon.icon.url, class: 'icon'
       = link_to conversation.target_user(current_user).name, conversation_dm_messages_path(conversation)

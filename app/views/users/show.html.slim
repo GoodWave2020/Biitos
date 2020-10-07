@@ -9,18 +9,18 @@
         - if current_user != @user
           = render 'follow_form'
         - else
-          h5.text-center マイページ
+          h5.text-center #{'views.user.my_page'}
           - if @user == current_user
             p
               = link_to edit_user_registration_path do
                 i.far.fa-edit #{t('views.post.edit')}
         p.follow-link
-          = link_to 'フォロワー', followers_path(@user.id), class: 'follower_path'
-          = link_to 'フォロー中', following_path(@user.id), class: 'following_path'
-        p = link_to 'お気に入り', user_favorites_path(@user.id)
+          = link_to t('views.user.followers'), followers_path(@user.id), class: 'follower_path'
+          = link_to t('views.user.following'), following_path(@user.id), class: 'following_path'
+        p = link_to t('views.user.favorite_posts'), user_favorites_path(@user.id)
         p #{t('activerecord.attributes.user.email')} : #{@user.email}
         p #{t('activerecord.attributes.user.profile')} : #{text_url_to_link(h(safe_join(@user.profile.split("\n"),tag(:br)))).html_safe}
-      h4.text-center 過去の投稿
+      h4.text-center #{t('views.user.past_posts')}
       - @user.posts.each do |post|
         .user_post.card
           .post_contents.card-body

@@ -1,4 +1,4 @@
-h2.text-center #{@user.name}と友達のユーザー
+h2.text-center #{@user.name} #{t('views.user.friends_with_this_person')}
 hr
 - @users.each do |user|
   p.friend.text-center
