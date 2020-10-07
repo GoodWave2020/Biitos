@@ -16,10 +16,10 @@
 }
 
 .top-image {
-  background: url("top-image.jpg");
+  background: url("top-image_2.jpg");
   height: 800px;
   background-size:cover;
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 .top-title {
@@ -30,6 +30,7 @@
   left: 0;
   font-size: 10rem;
   color: #30c19f;
+  font-family: 'Franklin Gothic Medium';
 }
 
 .description {
@@ -39,7 +40,10 @@
   bottom: 0;
   left: 200px;
   font-size: 2rem;
-  color: #30c19f;
+  color: #00edb5;
+  font-family: "Yu Mincho";
+  letter-spacing: 6px;
+
 }
 
 .login-signup {

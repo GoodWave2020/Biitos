@@ -12,7 +12,9 @@ ja:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
   views:
+    top_description: 最高の出会いと最高の音楽体験を
     public:
+      go_to_the_index: 投稿を見てみる
       posting_succeeded: 投稿されました。
       editting_failed: 編集に失敗しました。
       posting_failed: 投稿できませんでした。
