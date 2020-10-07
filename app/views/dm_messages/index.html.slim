@@ -6,7 +6,7 @@
       - else
         h3 to #{@conversation.recipient.name}
       - if @over_ten
-        = link_to '以前のメッセージ', '?m=all'
+        = link_to t('views.dm_message.past_messages'), '?m=all'
       .ui.segment
         - @dm_messages.each do |message|
           - unless message.collab_music.present?
@@ -20,7 +20,7 @@
                     .item
                       = message.body
                       - if message.user == current_user
-                        = message.read ? '既読' : '未読'
+                        = message.read ? t('views.dm_message.read') : t('views.dm_message.not_to_read')
       = form_with(model: [@conversation, @dm_message], local: true) do |f|
         .field
           = f.text_area :body, class: 'form-control'
@@ -39,7 +39,7 @@
           p
             = message.body
             - if message.user == current_user
-              = message.read ? '既読' : '未読'
+              = message.read ? t('views.dm_message.read') : t('views.dm_message.not_to_read')
           = audio_tag message.collab_music.mp3
           = button_to download_conversation_dm_message_path(@conversation.id, message.id), { method: :get } do
             i.fas.fa-download download

@@ -24,4 +24,6 @@ ja:
       conversation:
         index: DM
         dm_message: メッセージ
+      dm_message:
+        
       label: タグ

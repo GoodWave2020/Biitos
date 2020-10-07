@@ -45,6 +45,10 @@ ja:
       leave_blank_if_you_don't_want_to_change_it: 更新する場合パスワードを入力してください。
     conversation:
       message_index: メッセージ一覧
+    dm_message:
+      past_messages: 以前のメッセージ
+      read: 既読
+      not_to_read: 未読
   date:
     abbr_day_names:
     - 日
