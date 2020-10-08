@@ -1,7 +1,5 @@
 class ChangeColumnNotNullBody < ActiveRecord::Migration[5.2]
   def change
-    def change
-      change_column_null :comments, :body, null: false
-    end
+    change_column :comments, :body, :text, null: false
   end
 end
