@@ -16,4 +16,12 @@ FactoryBot.define do
     profile { 'other' }
     artist_type { 'Voicer' }
   end
+  factory :stranger, class: User do
+    name { 'stranger' }
+    email { 'stranger@email.com' }
+    password { 'password' }
+    password_confirmation { 'password' }
+    profile { 'stranger' }
+    artist_type { 'Voicer' }
+  end
 end
