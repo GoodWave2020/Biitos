@@ -8,7 +8,7 @@ class DmMessage < ApplicationRecord
   end
   def file_url
     if Rails.env.production?
-      "https://s3-ap-northeast-1.amazonaws.com/biitos-rails/uploadsuploads/dm_message/collab_music/#{self.id}/#{self.file_name}"
+      "https://s3-ap-northeast-1.amazonaws.com/biitos-rails/uploads/dm_message/collab_music/#{self.id}/#{self.file_name}"
     else
       "public/uploads/dm_message/collab_music/#{self.id}/#{self.file_name}"
     end
