@@ -6,7 +6,7 @@ CarrierWave.configure do |config|
     config.storage :fog
     config.fog_provider = 'fog/aws'
     config.fog_directory = 'biitos-rails'
-    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/本番環境用のバケット名'
+    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/biitos-rails'
     config.fog_credentials = {
         provider:              'AWS',
         aws_access_key_id:     ENV["AWS_ACCESS_KEY_ID"],

@@ -7,7 +7,11 @@ class DmMessage < ApplicationRecord
     created_at.strftime("%m/%d/%y at %l:%M %p")
   end
   def file_url
-    "public/uploads/dm_message/collab_music/#{self.id}/#{self.file_name}"
+    if Rails.env.production?
+      "https://s3-ap-northeast-1.amazonaws.com/biitos-rails/uploadsuploads/dm_message/collab_music/#{self.id}/#{self.file_name}"
+    else
+      "public/uploads/dm_message/collab_music/#{self.id}/#{self.file_name}"
+    end
   end
 
   def file_name
