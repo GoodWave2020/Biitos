@@ -12,13 +12,13 @@ RSpec.describe '投稿機能', type: :system do
     context '投稿を新規作成した場合' do
       it '作成した投稿が表示される' do
         visit new_post_path
-        fill_in :post_title, with: 'test'
+        fill_in :post_title, with: 'test_music'
         attach_file :post_music, 'spec/fixtures/velvet_extended.mp3'
         select 'Voice', from: :post_music_type
         select 'Jazz', from: :post_genre
         (all('.ui-widget-content')[1]).set('test')
         click_on '登録する'
-        expect(page).not_to have_content 'test'
+        expect(page).to have_content 'test_music'
       end
     end
   end
