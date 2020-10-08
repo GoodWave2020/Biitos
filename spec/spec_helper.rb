@@ -46,8 +46,10 @@ RSpec.configure do |config|
 
   config.before(:each) do |example|
     # driven_by :selenium, using: :headless_chrome, screen_size: [1400, 1400], options: { args: ['no-sandbox'] } if example.metadata[:type] == :system
-    driven_by(:selenium, using: :headless_chrome, screen_size: [1400, 800]) do |options|
-      options.add_argument('--lang=ja-jp')
+    if example.metadata[:type] == :system
+      driven_by(:selenium, using: :headless_chrome, screen_size: [1400, 800]) do |options|
+        options.add_argument('--lang=ja-jp')
+      end
     end
   end
 

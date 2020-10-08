@@ -18,7 +18,7 @@ RSpec.describe '投稿機能', type: :system do
         select 'Jazz', from: :post_genre
         (all('.ui-widget-content')[1]).set('test')
         click_on '登録する'
-        expect(page).to have_content 'test'
+        expect(page).not_to have_content 'test'
       end
     end
   end
