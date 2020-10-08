@@ -80,7 +80,7 @@ test:
 #
 production:
   <<: *default
-  database: Biitos_production
+  database: <%= ENV['BIITOS_DATABASE_NAME'] %>
   username: <%= ENV['BIITOS_DATABASE_USERNAME'] %>
   password: <%= ENV['BIITOS_DATABASE_PASSWORD'] %>
   host: <%= ENV['BIITOS_DATABASE_HOST'] %>
