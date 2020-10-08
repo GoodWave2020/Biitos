@@ -1,0 +1,8 @@
+h2.text-center #{@user.name} #{t('views.user.friends_with_this_person')}
+hr
+- @users.each do |user|
+  p.friend.text-center
+    = image_tag user.icon.icon.url, class: 'icon'
+    = link_to user.name, user_path(user.id)
+    = link_to conversations_path(sender_id: current_user.id, recipient_id: user.id), id: 'conversation_room', method: :post do
+      i.far.fa-comments

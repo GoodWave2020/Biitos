@@ -1,0 +1,127 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.form_contents {
+  justify-content: center;
+}
+
+#voice-tab {
+  background-color: transparent;
+}
+
+#tune-tab {
+  background-color: transparent;
+}
+
+#collab-tab {
+  background-color: transparent;
+}
+
+.user_post {
+  color: #fff;
+}
+
+.nav-tabs .nav-link.active {
+  color: #fff;
+}
+
+.nav-tabs .nav-link {
+  color: #ffffff7a;
+}
+
+.fa-search {
+  background-color: transparent;
+}
+
+.music_type_btn {
+  position: relative;
+  display: inline-block;
+  height: 20px;
+  padding: 0 7px;
+  background: #008080;
+  border: 1px solid #008080;
+  border-left-width: 0;
+  font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+  font-weight: 100;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: nowrap;
+  border-radius: 10px;
+  margin-left: 4px;
+  margin-right: 4px;
+  color: #fff;
+}
+
+.comment-btn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  .comment-edit-link {
+    margin-right: 4px;
+  }
+}
+
+.genre-btn {
+  position: relative;
+  display: inline-block;
+  height: 20px;
+  padding: 0 7px;
+  background: #999;
+  border: 1px solid #999;
+  border-left-width: 0;
+  font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+  font-weight: 100;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: nowrap;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color .5s;
+  margin-right: 4px;
+  .genre-link {
+    text-decoration: none;
+    color: #fff;
+  }
+}
+
+.genre-btn:hover {
+  background: #555;
+}
+
+.post_contents.card-body, .search_contents.card-body {
+  background-color: #625f62;
+}
+
+.labels-list{
+  padding-left: 0px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+}
+.label-list {
+  position: relative;
+  display: inline-block;
+  height: 20px;
+  padding: 0 7px;
+  background: #999;
+  border: 1px solid #999;
+  border-left-width: 0;
+  font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+  font-weight: 100;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: nowrap;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color .5s;
+  margin-right: 4px;
+  .link_btn {
+    text-decoration: none;
+    color: #fff;
+  }
+}
+
+.label-list:hover {
+  background: #555;
+}

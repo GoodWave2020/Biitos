@@ -1,0 +1,27 @@
+- posts.each do |post|
+  .user_post.card
+    .post_contents.card-body
+      .card-title
+        = image_tag post.user.icon.icon.url, class: 'icon'
+        = link_to post.user.name, user_path(post.user.id)
+      .card-text
+        p = post.title
+        .genre-btn
+          - if post.genre != nil
+            .genre-link
+              = post.genre
+        p = audio_tag post.music.mp3
+        - if user_signed_in?
+          - unless post.user_id == current_user.id
+            div id="like_btn_#{post.id}"
+              = render 'like_area', {post: post, favorites: @favorites}
+        .music_type_btn
+          = post.music_type
+        p = time_ago_in_words(post.created_at)
+        - if user_signed_in?
+          = link_to t('views.post.show'), post
+          - if current_user == post.user
+            = link_to edit_post_path(post) do
+              i.far.fa-edit
+            = link_to post, method: :delete, data: { confirm: t(:Are_you_sure?) } do
+              i.far.fa-trash-alt

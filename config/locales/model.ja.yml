@@ -1,0 +1,28 @@
+ja:
+  activerecord:
+    models:
+      post: 投稿
+      user: ユーザー
+    attributes:
+      post:
+        title: タイトル
+        picture: ジャケット
+        music: 曲
+        music_type: 曲のタイプ
+        genre: ジャンル
+      user:
+        name: 名前
+        email: メールアドレス
+        profile: プロフィール
+        artist_type: アーティストタイプ
+        current_password: 現在のパスワード
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        remember_me: ログインを記憶
+      relationship:
+        friend: 友達
+      conversation:
+        index: DM
+        dm_message: メッセージ
+      dm_message:
+      label: タグ

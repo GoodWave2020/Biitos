@@ -1,0 +1,30 @@
+.row.form_contents
+  .card.col-lg-5
+    .card-body
+      .card-image-top
+        p.text-center = image_tag @post.picture.thumb.url
+      .card-title
+        = image_tag @post.user.icon.icon.url, class: 'icon'
+        = link_to @post.user.name, user_path(@post.user.id)
+        .music_type_btn
+          = @post.music_type
+      .list-group.list-group-flush
+        .list-group-item
+          p = @post.title
+          p = audio_tag @post.music.mp3
+          - unless @post.user_id == current_user.id
+            div id="like_btn_#{@post.id}"
+              = render 'like_area', {post: @post, favorites: @favorites}
+          .genre-btn
+            = link_to @post.genre, posts_path(q: {genre_eq: @post.genre_before_type_cast, title_or_labels_name_cont_any: ''}), class: 'genre-link'
+          - unless @post.labels.blank?
+            ul.labels-list
+              - @post.labels.each do |label|
+                li.label-list
+                  = link_to label.name, posts_path(q: {title_or_labels_name_cont_any: label.name}), class: 'link_btn'
+          .list-group-item
+            #edit_messages
+            #comments_area
+              = render partial: 'comments/index', locals: { comments: @comments, post: @post }
+            = render partial: 'comments/form', locals: { comment: @comment, post: @post }
+            #flash_messages

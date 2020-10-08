@@ -1,0 +1,114 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require jquery-ui
+ *= require bootstrap/dist/css/bootstrap.min
+ *= require_tree .
+ *= require_self
+ */
+
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+
+.wrapper {
+  padding-top: 60px;
+}
+
+hr {
+  width: 95%;
+  background-color: #fff;
+}
+
+.picture_input_btn {
+  display: flex;
+  background-color: #718792;
+  height: 38px;
+  margin: 0 ;
+  border-radius: 5px;
+  padding-top: 2px;
+  color: white;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+.post_picture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin:0 ;
+}
+
+.picture_form{
+  display: none;
+}
+
+.music_input_btn {
+  display: flex;
+  background-color: #718792;
+  height: 38px;
+  margin: 0 ;
+  border-radius: 5px;
+  padding-top: 2px;
+  color: white;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.post_music {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin:0 ;
+}
+
+.music_form{
+  display: none;
+}
+
+body {
+  background-color: #4a4c4b;
+  .icon {
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+  .audiojs {
+    margin: 0 auto;
+  }
+
+  .navbar {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .navbar .navbar-nav .nav-link {
+    color: #fff;
+  }
+
+  .navbar .navbar-nav .nav-item.active .nav-link {
+    color: #fff;
+  }
+
+  .nav-link:hover {
+    color: #2DF39E;
+  }
+
+  i.fas.fa-home {
+    color: #fff;
+  }
+
+  .audiojs {
+    border-radius: 20px;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #e29aea), color-stop(0.5, #dc10b0), color-stop(0.51, #cc2cc7), color-stop(1, #991659));
+  }
+}

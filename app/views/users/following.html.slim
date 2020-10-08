@@ -1,0 +1,6 @@
+h2.text-center #{@user.name} #{t('views.user.following_user')}
+hr
+- @user.following.each do |user|
+  p.relations.text-center
+    = image_tag user.icon.icon.url, class: 'icon'
+    = link_to user.name, user_path(user.id)

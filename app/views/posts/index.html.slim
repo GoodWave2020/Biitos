@@ -1,0 +1,27 @@
+.container
+  .row
+    .col-md-8
+      ul.nav.nav-tabs
+        li.nav-item
+          a#voice-tab.nav-link.active href="#voice" data-toggle="tab" Voice
+        li.nav-item
+          a#tune-tab.nav-link href="#tune" data-toggle="tab" Tune
+        li.nav-item
+          a#collab-tab.nav-link href="#collabolated" data-toggle="tab" Collabolated
+
+      .tab-content
+        #voice.tab-pane.active
+          = render 'post_area', posts: @voice_posts
+        #tune.tab-pane
+          = render 'post_area', posts: @tune_posts
+        #collabolated.tab-pane
+          = render 'post_area', posts: @collabolated_posts
+    .col-md-4
+      .card
+        .card-header
+          | Search
+        .card-body.search_contents
+          = search_form_for @q, html: { class: "form-inline my-2 my-lg-0" } do |f|
+            = f.select :genre_eq, options_for_select(Post.genres), {include_blank: t('activerecord.attributes.post.genre')}, {class: "form-control"}
+            = f.search_field :title_or_labels_name_cont_any, class: 'form-control', placeholder: t('views.public.keyword')
+            = f.submit t('views.public.search'), class: 'btn btn-outline-success my-2 my-sm-0'

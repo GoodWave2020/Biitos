@@ -13,4 +13,22 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require audiojs
+//= require jquery/dist/jquery.js
+//= require jquery-ui
+//= require bootstrap/dist/js/bootstrap.min
 //= require_tree .
+
+$(document).on('turbolinks:load', function() {
+  audiojs.events.ready(function() {
+    var as = audiojs.createAll();
+  });
+  $(document).on('change', '#post_picture', function() {
+    var picture = $('#post_picture').prop('files')[0].name;
+    $('#picture_form').html(picture)
+  });
+  $(document).on('change', '#post_music, #dm_message_collab_music', function() {
+    var music = $('#post_music, #dm_message_collab_music').prop('files')[0].name;
+    $('#music_form, #collab_music_form').html(music)
+  });
+});

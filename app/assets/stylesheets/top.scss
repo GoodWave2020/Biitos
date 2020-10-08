@@ -1,0 +1,69 @@
+// Place all the styles related to the top controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.layer {
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.layer-in {
+  position: absolute;
+  top: 100px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.top-image {
+  background: url("top-image.jpg");
+  height: 800px;
+  background-size:cover;
+  opacity: 0.6;
+}
+
+.top-title {
+  position: absolute;
+  top: 200px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  font-size: 10rem;
+  color: #30c19f;
+  font-family: 'Franklin Gothic Medium';
+}
+
+.description {
+  position: absolute;
+  top: 400px;
+  right: 0;
+  bottom: 0;
+  left: 200px;
+  font-size: 2rem;
+  color: #00edb5;
+  font-family: "Yu Mincho";
+  letter-spacing: 6px;
+
+}
+
+.login-signup {
+  height: 38px;
+  position: absolute;
+  top: 500px;
+  right: 0px;
+  bottom: 0;
+  left: 0;
+}
+
+.login {
+  margin-right: 20px;
+}
+
+.index-btn {
+  height: 38px;
+  position: absolute;
+  top: 600px;
+  right: 0px;
+  bottom: 0;
+  left: 0;
+}

@@ -1,0 +1,8 @@
+.layer.top-image
+  .top-title Biitos
+  .description #{t('views.top_description')}
+  .login-signup
+    = link_to "Log in", new_user_session_path, class: 'btn btn-primary login'
+    = link_to "Sign up", new_user_registration_path, class: 'btn btn-secondary signup'
+  .index-btn
+    = link_to t('views.public.go_to_the_index'), posts_path, class: 'btn btn-warning'

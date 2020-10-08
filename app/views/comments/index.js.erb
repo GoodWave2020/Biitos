@@ -1,0 +1,4 @@
+$("#comments_area").html("<%= j(render 'comments/index', { comments: @comment.post.comments, post: @comment.post }) %>")
+$("textarea").val('')
+$("#flash_messages").html("<%= notice %>")
+$("#edit_messages").html("")

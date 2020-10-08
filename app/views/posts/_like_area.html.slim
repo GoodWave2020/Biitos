@@ -1,0 +1,6 @@
+- if favorites.find_by(post_id: post.id).present?
+  = link_to icon('fas', 'heart'), favorite_path(id: favorites.find_by(post_id: post.id).id, post_id: post.id), method: :delete, remote: true, id: "js-like-btn-#{post.id}"
+  = post.favorites.count
+- else
+  = link_to icon('far', 'heart'), favorites_path(post_id: post.id), method: :post, remote: true, id: "js-like-btn-#{post.id}"
+  = post.favorites.count
