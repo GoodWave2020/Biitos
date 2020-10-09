@@ -3,5 +3,7 @@
 <p>下記リンクからメール認証が完了します。</p>
 
 <p><%= link_to 'Confirm my account',
-                "http://biitos.com/users/confirmation?confirmation_token=#{@token}" %>
+                controller: 'devise/confirmations',
+                action: 'create',
+                confirmation_token: @token  %>
 </p>
