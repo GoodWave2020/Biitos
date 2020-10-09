@@ -46,6 +46,16 @@ namespace :deploy do
       end
     end
   end
+  desc 'Run reset'
+  task :reset do
+    on roles(:app) do
+      with rails_env: fetch(:rails_env) do
+        within current_path do
+          execute :rake, "DISABLE_DATABASE_ENVIRONMENT_CHECK=1 db:migrate:reset"
+        end
+      end
+    end
+  end
   after :publishing, :restart
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do

@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   mount_uploader :icon, ImageUploader
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable #, :confirmable
+         :recoverable, :rememberable, :validatable, :confirmable
   with_options presence: true do
     validates :name
     validates :artist_type
