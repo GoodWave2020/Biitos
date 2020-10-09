@@ -6,7 +6,7 @@ set :application, 'Biitos'
 # （xxxxxxxx：ユーザ名、yyyyyyyy：アプリケーション名）
 set :repo_url, 'https://github.com/GoodWave2020/Biitos.git'
 # deployするブランチ。デフォルトはmasterなのでなくても可。
-set :branch, ENV['BRANCH'] || 'master'
+set :branch, ENV['BRANCH'] || 'develop_after_deploy'
 # deploy先のディレクトリ。
 set :deploy_to, '/var/www/Biitos'
 # シンボリックリンクをはるフォルダ・ファイル
@@ -42,6 +42,16 @@ namespace :deploy do
       with rails_env: fetch(:rails_env) do
         within current_path do
           execute :bundle, :exec, :rake, 'db:seed'
+        end
+      end
+    end
+  end
+  desc 'Run reset'
+  task :reset do
+    on roles(:app) do
+      with rails_env: fetch(:rails_env) do
+        within current_path do
+          execute :rake, "DISABLE_DATABASE_ENVIRONMENT_CHECK=1 db:migrate:reset"
         end
       end
     end

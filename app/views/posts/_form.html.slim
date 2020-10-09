@@ -1,13 +1,5 @@
 = form_with(model: @post, local: true) do |f|
-  div class="row #{"form_contents" if action_name == 'new'}"
-    - if @post.errors.any?
-      #error_expanation
-        h2
-          = @post.errors.count
-          = t('activerecord.errors.messages.s_errors')
-        ul
-        - @post.errors.full_messages.each do |msg|
-          li = msg
+  div class="row #{"form_contents" if action_name == 'new' || action_name == 'index'}"
     - if action_name == 'edit'
       .edit_post.card.col-md-6
         .card-body
@@ -24,6 +16,14 @@
     .card.col-md-6
       .card-body
         .card-text
+          - if @post.errors.any?
+            #error_expanation
+              h2
+                = @post.errors.count
+                = t('activerecord.errors.messages.s_errors')
+              ul
+              - @post.errors.full_messages.each do |msg|
+                li = msg
           .post_title
             = f.label :title
             = f.text_field :title, class: 'form-control'

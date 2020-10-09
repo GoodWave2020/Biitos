@@ -33,6 +33,9 @@ ja:
 #      timeout: 'Your session expired, please sign in again to continue.'
       inactive: 'アカウントがアクティベートされていません。'
 #      inactive: 'Your account was not activated yet.'
+      user:
+        already_authenticated: すでにログインしています。
+        not_found_in_database: ユーザーが見つかりません。
     sessions:
       signed_in: 'ログインしました。'
 #      signed_in: 'Signed in successfully.'
@@ -55,6 +58,9 @@ ja:
 #      updated: 'You updated your account successfully.'
       destroyed: 'アカウントを削除しました。またのご利用をお待ちしております。'
 #      destroyed: 'Bye! Your account was successfully cancelled. We hope to see you again soon.'
+      user:
+        signed_up_but_unconfirmed: 確認メールを送りました。
+        update_needs_confirmation: 変更確認のメールを送りました。
     unlocks:
       send_instructions: 'アカウントの凍結解除方法を数分以内にメールでご連絡します。'
 #      send_instructions: 'You will receive an email with instructions about how to unlock your account in a few minutes.'

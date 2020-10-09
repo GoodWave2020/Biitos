@@ -4,7 +4,8 @@
               profile: 'test',
               artist_type: 'Tuner',
               password: 'password',
-              password_confirmation: 'password'
+              password_confirmation: 'password',
+              confirmed_at: Time.now
               )
 end
 10.times do |n|
@@ -13,7 +14,8 @@ end
               profile: 'test',
               artist_type: 'Voicer',
               password: 'password',
-              password_confirmation: 'password'
+              password_confirmation: 'password',
+              confirmed_at: Time.now
               )
 end
 10.times do |n|

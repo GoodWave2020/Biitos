@@ -13,7 +13,7 @@ RSpec.describe 'ユーザー機能', type: :system do
         fill_in :user_password, with: 'password'
         fill_in :user_password_confirmation, with: 'password'
         click_on "Sign up"
-        expect(page).to have_content 'user'
+        expect(page).to have_content '確認メールを送りました。'
       end
     end
     context 'ユーザがログインせずユーザー詳細画面に飛ぼうとした場合' do

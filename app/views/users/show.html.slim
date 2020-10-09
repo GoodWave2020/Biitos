@@ -9,7 +9,7 @@
         - if current_user != @user
           = render 'follow_form'
         - else
-          h5.text-center #{'views.user.my_page'}
+          h5.text-center #{t('views.user.my_page')}
           - if @user == current_user
             p
               = link_to edit_user_registration_path do
