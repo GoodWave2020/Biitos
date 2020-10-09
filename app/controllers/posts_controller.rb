@@ -25,7 +25,7 @@ class PostsController < ApplicationController
     label_list = label_params[:label_list].split(',')
     if @post.save
       @post.save_labels(label_list)
-      redirect_to posts_path, notice: t('views.controller.public.the_post_added')
+      redirect_to posts_path, notice: t('controller.public.the_post_added')
     else
       render :new
     end
@@ -46,7 +46,7 @@ class PostsController < ApplicationController
     label_list = label_params[:label_list].split(',')
     if @post.update(post_params)
       @post.save_labels(label_list)
-      redirect_to posts_path, notice:t('views.controller.public.the_post_updated')
+      redirect_to posts_path, notice:t('controller.public.the_post_updated')
     else
       render :edit
     end
@@ -55,7 +55,7 @@ class PostsController < ApplicationController
   def destroy
     check_user(@post.user)
     @post.destroy
-    redirect_to posts_path, notice:t('views.controller.public.the_post_deleted')
+    redirect_to posts_path, notice:t('controller.public.the_post_deleted')
   end
 
   private

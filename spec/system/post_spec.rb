@@ -13,7 +13,7 @@ RSpec.describe '投稿機能', type: :system do
       it '作成した投稿が表示される' do
         visit new_post_path
         fill_in :post_title, with: 'test_music'
-        attach_file :post_music, 'spec/fixtures/velvet_extended.mp3'
+        attach_file :post_music, 'spec/fixtures/velvet_extended.mp3', make_visible: true
         select 'Voice', from: :post_music_type
         select 'Jazz', from: :post_genre
         (all('.ui-widget-content')[1]).set('test')
@@ -61,7 +61,7 @@ RSpec.describe '投稿機能', type: :system do
       it '検索したタグ以外表示されない' do
         visit new_post_path
         fill_in :post_title, with: 'tag-test'
-        attach_file :post_music, 'spec/fixtures/velvet_extended.mp3'
+        attach_file :post_music, 'spec/fixtures/velvet_extended.mp3', make_visible: true
         select 'Voice', from: :post_music_type
         select 'Jazz', from: :post_genre
         (all('.ui-widget-content')[1]).set('ableton')

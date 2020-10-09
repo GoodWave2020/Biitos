@@ -7,6 +7,7 @@ FactoryBot.define do
     icon { 'app/assets/images/fallback/show_icon_default.png' }
     profile { 'test' }
     artist_type { 'Tuner' }
+    confirmed_at { Time.now }
   end
   factory :other_user, class: User do
     name { 'other_name' }
@@ -15,6 +16,7 @@ FactoryBot.define do
     password_confirmation { 'password' }
     profile { 'other' }
     artist_type { 'Voicer' }
+    confirmed_at { Time.now }
   end
   factory :stranger, class: User do
     name { 'stranger' }
@@ -23,5 +25,6 @@ FactoryBot.define do
     password_confirmation { 'password' }
     profile { 'stranger' }
     artist_type { 'Voicer' }
+    confirmed_at { Time.now }
   end
 end
