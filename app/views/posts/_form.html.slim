@@ -1,5 +1,5 @@
 = form_with(model: @post, local: true) do |f|
-  div class="row #{"form_contents" if action_name == 'new' || action_name == 'index'}"
+  div class="row #{"form_contents" if action_name == 'new' || 'index'}"
     - if action_name == 'edit'
       .edit_post.card.col-md-6
         .card-body
