@@ -26,7 +26,15 @@ class DmMessagesController < ApplicationController
     check_friend(@conversation)
     @dm_messages = @conversation.dm_messages
     @dm_message = @conversation.dm_messages.build(dm_message_params)
+    ######
+    if @conversation.sender_id == current_user.id
+      visited_id = @conversation.recipient_id
+    else
+      visited_id = @conversation.sender_id
+    end
+    ######
     if @dm_message.save
+      @conversation.save_notification_dm_message!(current_user, @dm_message.id, visited_id)
       redirect_to conversation_dm_messages_path(@conversation)
     else
       flash.now[:notice] = t('controller.public.please_fill_in_the_the_comment')

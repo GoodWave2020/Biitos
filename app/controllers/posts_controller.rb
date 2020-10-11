@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   def index
     if params[:q] != nil
-     params[:q][:title_or_labels_name_cont_any] = params[:q][:title_or_labels_name_cont_any].split(/[\p{blank}\s]+/)
+      params[:q][:title_or_labels_name_cont_any] = params[:q][:title_or_labels_name_cont_any].split(/[\p{blank}\s]+/)
     end
     @q = Post.ransack(params[:q])
     @q.sorts = 'created_at desc' if @q.sorts.empty?
@@ -23,11 +23,17 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     label_list = label_params[:label_list].split(',')
-    if @post.save
-      @post.save_labels(label_list)
-      redirect_to posts_path, notice: t('controller.public.the_post_added')
-    else
+    accepted_format = [".mp3"]
+    if !accepted_format.include? File.extname("#{@post.music.file.filename}")
+      @post.errors.add(:music, t('activerecord.errors.messages.file_type_m4a'))
       render :new
+    else
+      if @post.save
+        @post.save_labels(label_list)
+        redirect_to posts_path, notice: t('controller.public.the_post_added')
+      else
+        render :new
+      end
     end
   end
 

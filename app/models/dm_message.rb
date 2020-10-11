@@ -2,6 +2,7 @@ class DmMessage < ApplicationRecord
   mount_uploader :collab_music, AudioUploader
   belongs_to :conversation
   belongs_to :user
+  has_many :notifications, dependent: :destroy
   validates_presence_of :body, :conversation_id, :user_id
   def dm_message_time
     created_at.strftime("%m/%d/%y at %l:%M %p")

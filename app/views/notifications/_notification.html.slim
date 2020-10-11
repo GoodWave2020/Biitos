@@ -26,6 +26,10 @@
         = t('views.notification.commented')
         p.text-white.mb-0.text-left
           = Comment.find_by(id: notification.comment_id)&.body
+      - when 'dm' then
+        - if notification.dm_message.user_id != visited.id
+          = link_to 'DM', conversation_dm_messages_path(notification.conversation.id), style: "font-weight: bold;"
+        = t('views.notification.messaged')
   .small.text-muted.text-right
     = time_ago_in_words(notification.created_at).upcase
     hr

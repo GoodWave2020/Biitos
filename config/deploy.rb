@@ -6,7 +6,7 @@ set :application, 'Biitos'
 # （xxxxxxxx：ユーザ名、yyyyyyyy：アプリケーション名）
 set :repo_url, 'https://github.com/GoodWave2020/Biitos.git'
 # deployするブランチ。デフォルトはmasterなのでなくても可。
-set :branch, ENV['BRANCH'] || 'develop_after_deploy'
+set :branch, ENV['BRANCH'] || 'master'
 # deploy先のディレクトリ。
 set :deploy_to, '/var/www/Biitos'
 # シンボリックリンクをはるフォルダ・ファイル

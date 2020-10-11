@@ -1,6 +1,6 @@
 class AudioUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
+  # process :set_magic_content_type => [true]
   # include CarrierWave::MiniMagick
   include CarrierWave::Audio
   # Choose what kind of storage to use for this uploader:

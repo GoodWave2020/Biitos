@@ -48,3 +48,18 @@ https://docs.google.com/spreadsheets/d/1gpwRvZRek0DiApa-pT1f58Lk7cLqKueKPlFY5rob
 - carrierwave-audio
 - slim-rails
 - font-awesome-sass
+### Dependency
+- SoX
+- Bash (for process substitution combiner strategy)
+- Chromaprint (only to run tests)
+#### Ubuntu / Debian
+`apt-get install libsox-fmt-all sox libchromaprint-dev`
+#### Mac
+```
+# One of the following
+# Notes:
+# * chromaprint is not available in MacPorts as of this writing
+# * flac must be installed before sox so it will link during compilation
+sudo port install flac sox && brew install chromaprint
+brew install flac sox chromaprint
+```

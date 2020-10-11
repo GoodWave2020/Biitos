@@ -11,6 +11,7 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+        file_type_m4a: mp3形式でアップロードをしてください。
   views:
     top_description: 最高の出会いと最高の音楽体験を
     public:
@@ -26,6 +27,7 @@ ja:
       keyword: キーワード
       search: 検索
       delete_user: アカウント削除
+      not_come_up: ヒットしませんでした。
     post:
       new: 新規投稿
       edit: 編集
@@ -62,6 +64,7 @@ ja:
       liked: にいいねしました。
       s_post: さんの投稿
       commented: にコメントしました。
+      messaged: を送りました。
   controller:
     public:
       please_fill_in_the_the_comment: コメントを入力してください。
