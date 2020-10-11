@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_09_050204) do
+ActiveRecord::Schema.define(version: 2020_10_11_130306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,10 @@ ActiveRecord::Schema.define(version: 2020_10_09_050204) do
     t.boolean "checked", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "conversation_id"
+    t.bigint "dm_message_id"
+    t.index ["conversation_id"], name: "index_notifications_on_conversation_id"
+    t.index ["dm_message_id"], name: "index_notifications_on_dm_message_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -129,5 +133,7 @@ ActiveRecord::Schema.define(version: 2020_10_09_050204) do
   add_foreign_key "dm_messages", "users"
   add_foreign_key "labellings", "labels"
   add_foreign_key "labellings", "posts"
+  add_foreign_key "notifications", "conversations"
+  add_foreign_key "notifications", "dm_messages"
   add_foreign_key "posts", "users"
 end

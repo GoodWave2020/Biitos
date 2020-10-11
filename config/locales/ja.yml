@@ -63,6 +63,7 @@ ja:
       liked: にいいねしました。
       s_post: さんの投稿
       commented: にコメントしました。
+      messaged: を送りました。
   controller:
     public:
       please_fill_in_the_the_comment: コメントを入力してください。
