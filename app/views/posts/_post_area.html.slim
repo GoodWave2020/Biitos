@@ -1,5 +1,5 @@
 - if posts.empty?
-  strong ヒットしませんでした。
+  strong #{t('views.public.not_come_up')}
 - posts.each do |post|
   .user_post.card
     .post_contents.card-body

@@ -27,6 +27,7 @@ ja:
       keyword: キーワード
       search: 検索
       delete_user: アカウント削除
+      not_come_up: ヒットしませんでした。
     post:
       new: 新規投稿
       edit: 編集
