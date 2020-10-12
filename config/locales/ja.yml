@@ -67,7 +67,7 @@ ja:
       messaged: を送りました。
   controller:
     public:
-      please_fill_in_the_the_comment: コメントを入力してください。
+      please_fill_in_the_the_comment: コメントが空、またはmp3以外の拡張子を入力しています。
       the_post_added: 投稿が追加されました。
       the_post_updated: 投稿が更新されました。
       the_post_deleted: 投稿を削除しました。
