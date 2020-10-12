@@ -20,44 +20,12 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  # def create
-  #   @post = current_user.posts.build(post_params)
-  #   label_list = label_params[:label_list].split(',')
-  #   until @post.music.file.nil?
-  #     accepted_format = [".mp3"]
-  #     if !accepted_format.include? File.extname("#{@post.music.file.filename}")
-  #       @post.errors.add(:music, t('activerecord.errors.messages.file_type_m4a'))
-  #       render :new and return
-  #     else
-  #       if @post.save
-  #         @post.save_labels(label_list)
-  #         redirect_to posts_path, notice: t('controller.public.the_post_added')
-  #       else
-  #         render :new and return
-  #       end
-  #     end
-  #   end
-  #   if @post.save
-  #     @post.save_labels(label_list)
-  #     redirect_to posts_path, notice: t('controller.public.the_post_added')
-  #   else
-  #     render :new
-  #   end
-  # end
-
   def create
     @post = current_user.posts.build(post_params)
     label_list = label_params[:label_list].split(',')
-    if @post.valid?
-      accepted_format = [".mp3"]
-      if !accepted_format.include? File.extname("#{@post.music.file.filename}")
-        @post.errors.add(:music, t('activerecord.errors.messages.file_type_m4a'))
-        render :new and return
-      else
-        @post.save
-        @post.save_labels(label_list)
-        redirect_to posts_path, notice: t('controller.public.the_post_added')
-      end
+    if @post.save
+      @post.save_labels(label_list)
+      redirect_to posts_path, notice: t('controller.public.the_post_added')
     else
       render :new
     end
