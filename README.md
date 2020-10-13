@@ -55,6 +55,8 @@ https://docs.google.com/spreadsheets/d/1gpwRvZRek0DiApa-pT1f58Lk7cLqKueKPlFY5rob
 #### Ubuntu / Debian
 `apt-get install libsox-fmt-all sox libchromaprint-dev`
 #### Mac
+※macの場合パッケージ管理ツールであるportsが必要です。下記リンクからご自身の環境に合ったバージョンをインストールしてください。
+https://github.com/macports/macports-base/releases/tag/v2.6.3
 ```
 # One of the following
 # Notes:
