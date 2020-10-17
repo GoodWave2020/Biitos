@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'top/', to: 'top#top', as: 'top'
   devise_for :users, controllers: {
     registrations: 'users/registrations'

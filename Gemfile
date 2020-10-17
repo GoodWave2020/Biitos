@@ -28,6 +28,8 @@ gem 'fog-aws'
 gem 'unicorn'
 gem 'mini_racer', platforms: :ruby
 gem 'dotenv-rails'
+gem 'rails_admin', '~> 2.0'
+gem 'cancancan'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
