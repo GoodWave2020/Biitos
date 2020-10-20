@@ -1,0 +1,8 @@
+.form
+  = form_for [@group, @group_message] do |f|
+    = f.text_field :body, class: 'form__message', placeholder: 'type a message'
+    = f.label :group_music, 'music', class: 'music_input_btn col-sm-3'
+    = f.file_field :group_music, class: 'music_form'
+    = f.submit 'Send', class: 'form__submit'
+.massages
+  = render @group_messages

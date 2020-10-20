@@ -1,0 +1,20 @@
+.side-bar
+  .header
+    h3.header__name
+      = current_user.name
+    ul.header__lists
+      li.list
+        = link_to new_group_path do
+          i.fas.fa-edit グループを作成する
+  .groups
+    - current_user.groups.each do |group|
+      .group
+        = link_to group_group_messages_path(group) do
+          .group__name
+            = group.name
+          .group__message
+            = group.show_last_message
+        = link_to edit_group_path(group) do
+          i.far.fa-edit
+        = link_to group, method: :delete, data: { confirm: t(:Are_you_sure?) } do
+          i.far.fa-trash-alt
