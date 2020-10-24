@@ -1,0 +1,10 @@
+.massages
+  = render @group_messages
+.form
+  = form_for [@group, @group_message] do |f|
+    = f.text_field :body, class: 'form-control', placeholder: 'type a message'
+    .post_music.row
+      #collab_music_form.form-control.col-sm-9
+      = f.label :group_music, 'music', class: 'music_input_btn col-sm-3'
+      = f.file_field :group_music, class: 'music_form'
+    = f.submit 'Send', class: 'btn btn-primary'

@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include GroupsHelper
+
   before_action :configure_permitted_parameters, if: :devise_controller?
   protected
   def configure_permitted_parameters

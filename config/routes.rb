@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'group_messages/index'
   get 'top/', to: 'top#top', as: 'top'
   devise_for :users, controllers: {
     registrations: 'users/registrations'
@@ -18,6 +19,15 @@ Rails.application.routes.draw do
 
   resources :conversations do
     resources :dm_messages do
+      member do
+        get :download
+      end
+    end
+  end
+
+  resources :groups do
+    resources :group_users, only: [:create, :destroy]
+    resources :group_messages do
       member do
         get :download
       end

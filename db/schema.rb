@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_11_130306) do
+ActiveRecord::Schema.define(version: 2020_10_20_084230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,35 @@ ActiveRecord::Schema.define(version: 2020_10_11_130306) do
     t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "group_messages", force: :cascade do |t|
+    t.text "body", null: false
+    t.text "group_music"
+    t.bigint "group_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_group_messages_on_group_id"
+    t.index ["user_id"], name: "index_group_messages_on_user_id"
+  end
+
+  create_table "group_users", force: :cascade do |t|
+    t.bigint "group_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_group_users_on_group_id"
+    t.index ["user_id"], name: "index_group_users_on_user_id"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description"
+    t.bigint "owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_id"], name: "index_groups_on_owner_id"
   end
 
   create_table "labellings", force: :cascade do |t|
@@ -123,6 +152,7 @@ ActiveRecord::Schema.define(version: 2020_10_11_130306) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -131,6 +161,11 @@ ActiveRecord::Schema.define(version: 2020_10_11_130306) do
   add_foreign_key "comments", "users"
   add_foreign_key "dm_messages", "conversations"
   add_foreign_key "dm_messages", "users"
+  add_foreign_key "group_messages", "groups"
+  add_foreign_key "group_messages", "users"
+  add_foreign_key "group_users", "groups"
+  add_foreign_key "group_users", "users"
+  add_foreign_key "groups", "users", column: "owner_id"
   add_foreign_key "labellings", "labels"
   add_foreign_key "labellings", "posts"
   add_foreign_key "notifications", "conversations"

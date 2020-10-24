@@ -1,0 +1,11 @@
+- @group_messages.each do |message|
+  - if message.group_music.present?
+    = image_tag message.user.icon.icon.url, class: 'icon'
+    strong = message.user.name
+    = message.group_message_time
+    p
+      = message.body
+      - if message.user == current_user
+    = audio_tag message.group_music.mp3
+    = button_to download_group_group_message_path(@group.id, message.id), { method: :get } do
+      i.fas.fa-download download
