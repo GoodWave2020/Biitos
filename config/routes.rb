@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   end
 
   resources :groups do
+    resources :group_users, only: [:create, :destroy]
     resources :group_messages do
       member do
         get :download

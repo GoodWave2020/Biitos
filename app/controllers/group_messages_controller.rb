@@ -1,6 +1,7 @@
 class GroupMessagesController < ApplicationController
   before_action :set_group
   def index
+    @users = email_search(params[:search])
     @group_message = GroupMessage.new
     @group_messages = @group.group_messages.includes(:user)
   end

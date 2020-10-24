@@ -6,13 +6,14 @@ class GroupsController < ApplicationController
   end
 
   def new
+    @users = email_search(params[:search])
     @group = Group.new
-    @group.users << current_user
-    @group.owner << current_user
   end
 
   def create
     @group = Group.new(group_params)
+    @group.owner = current_user
+    @group.users << current_user
     if @group.save
       redirect_to groups_path, notice: 'グループを作成しました。'
     else
@@ -21,6 +22,7 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    @users = email_search(params[:search])
   end
 
   def update
@@ -38,7 +40,7 @@ class GroupsController < ApplicationController
 
   private
   def group_params
-    params.require(:group).permit(:name, :description, user_ids: [])
+    params.require(:group).permit(:name, :description)
   end
 
   def set_group
