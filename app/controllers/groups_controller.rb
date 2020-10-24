@@ -22,10 +22,12 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    check_owner(@group)
     @users = email_search(params[:search])
   end
 
   def update
+    check_owner(@group)
     if @group.update(group_params)
       redirect_to groups_path, notice: 'グループ情報を更新しました。'
     else
@@ -34,6 +36,7 @@ class GroupsController < ApplicationController
   end
 
   def destroy
+    check_owner(@group)
     @group.destroy
     redirect_to groups_path, notice: 'グループを削除しました。'
   end
@@ -45,5 +48,11 @@ class GroupsController < ApplicationController
 
   def set_group
     @group = Group.find(params[:id])
+  end
+
+  def check_owner(group)
+    if current_user != group.owner
+      redirect_to groups_path, notice: 'オーナー権限が必要です。'
+    end
   end
 end

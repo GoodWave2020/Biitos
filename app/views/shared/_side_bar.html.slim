@@ -10,7 +10,8 @@
             = group.name
           .group__message
             = group.show_last_message
-        = link_to edit_group_path(group) do
-          i.far.fa-edit
-        = link_to group, method: :delete, data: { confirm: t(:Are_you_sure?) } do
-          i.far.fa-trash-alt
+        - if current_user == group.owner
+          = link_to edit_group_path(group) do
+            i.far.fa-edit
+          = link_to group, method: :delete, data: { confirm: t(:Are_you_sure?) } do
+            i.far.fa-trash-alt
