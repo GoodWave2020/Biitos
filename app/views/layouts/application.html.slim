@@ -25,9 +25,11 @@ html
                     = link_to user_path(current_user.id), class: 'dropdown-item' do
                       i.fas.fa-user #{t('views.user.show')}
                     = link_to friends_path(current_user.id), class: 'dropdown-item' do
-                      i.fas.fa-users #{t('activerecord.attributes.relationship.friend')}
+                      i.fas.fa-user-friends #{t('activerecord.attributes.relationship.friend')}
                     = link_to conversations_path, class: 'dropdown-item' do
                       i.fas.fa-envelope #{t('activerecord.attributes.conversation.index')}
+                    = link_to groups_path, class: 'dropdown-item' do
+                      i.fas.fa-users グループ一覧
                     .dropdown-divider
                     = link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do
                       i.fas.fa-sign-out-alt #{t('views.public.log_out')}
