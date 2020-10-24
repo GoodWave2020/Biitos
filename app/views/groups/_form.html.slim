@@ -1,0 +1,39 @@
+div class="row #{"form_contents" if action_name == 'new' || 'index'}"
+  .col-md-4
+    .card
+      = form_for group do |f|
+        - if group.errors.any?
+          .chat-group-form__errors
+            h2 = "#{group.errors.full_messages.count}件のエラーが発生しました。"
+            ul
+              - group.errors.full_messages.each do |message|
+                li= message
+        .card-body
+          .card-text
+            .group_name
+              = f.label :name, class: 'chat-group-form__label'
+              = f.text_field :name, class: 'form-control', placeholder: 'グループ名を入力してください'
+            .group_description
+              = f.label :description
+              = f.text_area :description, class: 'form-control', placeholder: 'グループの説明'
+            = f.submit class: 'btn btn-primary'
+  - if action_name == 'edit'
+    .col-md-5
+      .card
+        .card-header オーナー
+        .card-body
+          .card-text
+            = image_tag group.owner.icon.icon.url, class: 'icon'
+            strong = group.owner.name
+          br
+          .card-header メンバー
+          br
+          .card-text
+            - group.users.each do |user|
+              - unless user == @group.owner
+                p
+                  = image_tag user.icon.icon.url, class: 'icon'
+                  strong = user.name
+                  = link_to '離脱', group_group_user_path(group, user.group_users.find_by(group_id: group.id).id), method: :delete
+    .col-md-3
+      = render 'shared/add_user', {group: @group, users: @users}

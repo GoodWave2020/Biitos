@@ -22,6 +22,10 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :active_notifications, class_name: "Notification", foreign_key: "visitor_id", dependent: :destroy
   has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
+  has_many :groups, foreign_key: :owner_id
+  has_many :group_users
+  has_many :groups, through: :group_users
+  has_many :group_messages
   def follow!(other_user)
     active_relationships.create!(followed_id: other_user.id)
   end
