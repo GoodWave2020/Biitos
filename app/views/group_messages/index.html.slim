@@ -1,8 +1,14 @@
 .wrapper
   .row
-    .col-md-3
+    .col-md-2
       = render "shared/side_bar"
-    .col-md-9
+    .col-md-3
+      h4 = @group.name
+      h5 = @group.description
+      h3 メンバー
       - @group.users.each do |user|
-        li = user.name
+        p = link_to user.name, user_path(user)
+    .col-md-2
       = render "main_chat"
+    .col-md-5
+      = render "music_player"

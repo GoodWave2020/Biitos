@@ -1,12 +1,13 @@
 .card
   .card-header
-    | Search
+    | アドレスを入力してください。
   .card-body.search_contents
     = form_tag(edit_group_path,:method => 'get') do
       = text_field_tag :search
       = submit_tag 'Search', class: 'btn btn-outline-success my-2 my-sm-0'
-  .card-body
-    - users.each do |user|
+  - users.each do |user|
+    .card-body.text-center
       = form_with model: :group_user, scope: :post, url: group_group_users_path(group), local: true do |f|
         = f.hidden_field :user_id, value: "#{user.id}"
-        button type='submit' = user.name
+        = user.name
+        button type='submit' add

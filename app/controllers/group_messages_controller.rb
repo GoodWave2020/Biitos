@@ -17,6 +17,14 @@ class GroupMessagesController < ApplicationController
     end
   end
 
+  def download
+    @group_message = GroupMessage.find(params[:id])
+    data = open(URI.encode(@group_message.file_url))
+    send_data data.read, disposition: 'attachment',
+              filename: "#{@group_message.body}.mp3", type: @group_message.content_type
+  end
+
+  private
   def group_message_params
     params.require(:group_message).permit(:body, :group_music).merge(user_id: current_user.id)
   end
