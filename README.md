@@ -29,6 +29,8 @@ Ruby 2.6.5 Rails 5.2.4
 - ランキング機能(未実装)
 - オススメユーザー機能(未実装)
   好きなアーティストが似ているユーザーを表示(未実装)
+### システム構成
+![システム構成](https://user-images.githubusercontent.com/65487142/97082095-0f94e180-1642-11eb-80de-61e8b8619a7e.png)
 ### カタログ設計
 https://docs.google.com/spreadsheets/d/16wwKR8sxm-Q8o30x6buVFDllLR5vcxwePHugEuG_kWQ/edit?usp=sharing
 ### テーブル定義
