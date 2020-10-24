@@ -30,9 +30,10 @@ div class="row #{"form_contents" if action_name == 'new' || 'index'}"
           br
           .card-text
             - group.users.each do |user|
-              p
-                = image_tag user.icon.icon.url, class: 'icon'
-                strong = user.name
-                = link_to '離脱', group_group_user_path(group, user.group_users.find_by(group_id: group.id).id), method: :delete
+              - unless user == @group.owner
+                p
+                  = image_tag user.icon.icon.url, class: 'icon'
+                  strong = user.name
+                  = link_to '離脱', group_group_user_path(group, user.group_users.find_by(group_id: group.id).id), method: :delete
     .col-md-3
       = render 'shared/add_user', {group: @group, users: @users}

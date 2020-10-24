@@ -4,10 +4,13 @@
       = render "shared/side_bar"
     .col-md-2
       h4 = @group.name
-      h5 = @group.description
-      h3 メンバー
+      h6 = @group.description
+      h4 オーナー
+      h6 = link_to @group.owner.name, user_path(@group.owner)
+      h4 メンバー
       - @group.users.each do |user|
-        p = link_to user.name, user_path(user)
+        - unless user == @group.owner
+          p = link_to user.name, user_path(user)
     .col-md-3
       = render "main_chat"
     .col-md-5
