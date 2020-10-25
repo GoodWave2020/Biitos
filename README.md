@@ -30,7 +30,7 @@ Ruby 2.6.5 Rails 5.2.4
 - オススメユーザー機能(未実装)
 - 好きなアーティストが似ているユーザーを表示(未実装)
 ### システム構成
-![システム構成](https://user-images.githubusercontent.com/65487142/97082095-0f94e180-1642-11eb-80de-61e8b8619a7e.png)
+![システム構成](https://user-images.githubusercontent.com/65487142/97112337-13e6fa80-1727-11eb-8490-6afd2d994770.jpg)
 ### カタログ設計
 https://docs.google.com/spreadsheets/d/16wwKR8sxm-Q8o30x6buVFDllLR5vcxwePHugEuG_kWQ/edit?usp=sharing
 ### テーブル定義
