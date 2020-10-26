@@ -10,10 +10,8 @@ Ruby 2.6.5 Rails 5.2.4
 ### ログイン用ユーザー
 DM(ダイレクトメール)機能を確認する際にお使いください。
 ヘッダーのユーザー名からDM(ダイレクトメール)一覧に飛びます。
-email: number0@tuner.com
-pass: password
-email: number@voicer.com
-pass: password
+- email: number0@tuner.com pass: password
+- email: number@voicer.com pass: password
 ### 機能一覧
 - 音楽投稿機能
 - 音楽再生
