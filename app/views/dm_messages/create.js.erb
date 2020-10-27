@@ -1,0 +1,7 @@
+$("#dm_message_area").html("<%= j(render 'dm_messages/dm_message_area', dm_messages: @dm_messages )%>");
+$("#music_area").html("<%= j(render 'dm_messages/music_area', { dm_messages: @dm_messages, conversation: @conversation} )%>");
+audiojs.events.ready(function() {
+  var as = audiojs.createAll();
+});
+$("textarea").val('');
+$("#collab_music_form").html('');
