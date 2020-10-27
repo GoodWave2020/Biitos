@@ -35,7 +35,11 @@ class DmMessagesController < ApplicationController
     ######
     if @dm_message.save
       @conversation.save_notification_dm_message!(current_user, @dm_message.id, visited_id)
-      redirect_to conversation_dm_messages_path(@conversation)
+      respond_to do |format|
+        format.html {redirect_to request.referrer}
+        format.js
+      end
+      #redirect_to conversation_dm_messages_path(@conversation)
     else
       flash.now[:notice] = t('controller.public.please_fill_in_the_the_comment')
       redirect_to conversation_dm_messages_path, notice: t('controller.public.please_fill_in_the_the_comment')
