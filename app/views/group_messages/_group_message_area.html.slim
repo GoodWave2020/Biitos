@@ -1,0 +1,12 @@
+- group_messages.each do |message|
+  - unless message.group_music.present?
+    .message
+      .upper-message
+        .upper-message__user-name
+          = image_tag message.user.icon.icon.url, class: 'icon'
+          strong = message.user.name
+          = message.group_message_time
+      .lower-message
+        - if message.body.present?
+          p.lower-message__content
+            = message.body

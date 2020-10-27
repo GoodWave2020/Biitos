@@ -27,8 +27,8 @@ $(document).on('turbolinks:load', function() {
     var picture = $('#post_picture').prop('files')[0].name;
     $('#picture_form').html(picture)
   });
-  $(document).on('change', '#post_music, #dm_message_collab_music', function() {
-    var music = $('#post_music, #dm_message_collab_music').prop('files')[0].name;
-    $('#music_form, #collab_music_form').html(music)
+  $(document).on('change', '#post_music, #dm_message_collab_music ,#group_message_group_music', function() {
+    var music = $('#post_music, #dm_message_collab_music, #group_message_group_music').prop('files')[0].name;
+    $('#music_form, #group_music_form').html(music)
   });
 });

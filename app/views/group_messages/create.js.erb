@@ -1,0 +1,7 @@
+$(".messages").html("<%= j(render 'group_messages/group_message_area', group_messages: @group_messages)%>");
+$("#group_music_area").html("<%= j(render "group_messages/music_player", { group_messages: @group_messages, group: @group })%>");
+audiojs.events.ready(function() {
+  var as = audiojs.createAll();
+});
+$("#group_message_body").val('');
+$("#group_music_form").html('');
