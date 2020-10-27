@@ -1,5 +1,8 @@
 # README
 ## 音楽マッチングアプリ Biitos
+![Biitos-top](https://user-images.githubusercontent.com/65487142/97261141-94aa1180-1861-11eb-9318-a331c43133fb.png)
+###リンク
+https://biitos.com/
 ### 概要
 Biitosはあなたの声に必要な曲、曲に必要な声を探せるアプリです。
 投稿からお気に入りの音源を探してユーザーをフォロー。マッチ後曲を渡しあうことができます。
