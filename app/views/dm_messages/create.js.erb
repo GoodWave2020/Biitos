@@ -3,4 +3,5 @@ $("#music_area").html("<%= j(render 'dm_messages/music_area', { dm_messages: @dm
 audiojs.events.ready(function() {
   var as = audiojs.createAll();
 });
-$("textarea").val('')
+$("textarea").val('');
+$("#collab_music_form").html('');
