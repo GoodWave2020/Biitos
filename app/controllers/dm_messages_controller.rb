@@ -5,9 +5,10 @@ class DmMessagesController < ApplicationController
   def index
     check_friend(@conversation)
     dm_messages(@conversation)
-    if @dm_messages.length > 10
+    @dm_messages = @dm_messages.order(:created_at)
+    if @dm_messages.without_music.length > 10
       @over_ten = true
-      @dm_messages = DmMessage.where(id: @dm_messages[-10..-1].pluck(:id))
+      @dm_messages = DmMessage.where(id: @dm_messages.without_music[-10..-1].pluck(:id))
     end
     if params[:m]
       @over_ten = false
@@ -16,9 +17,10 @@ class DmMessagesController < ApplicationController
     if @dm_messages.any?
       @dm_messages.where.not(user_id: current_user.id).update_all(read: true)
     end
-    @dm_messages = @dm_messages.order(:created_at)
     @dm_message = @conversation.dm_messages.build
+    @collab_music = @conversation.dm_messages.music_only
   end
+
   def create
     check_friend(@conversation)
     dm_messages(@conversation)
@@ -32,6 +34,13 @@ class DmMessagesController < ApplicationController
     ######
     if @dm_message.save
       @conversation.save_notification_dm_message!(current_user, @dm_message.id, visited_id)
+      @dm_messages = @dm_messages.order(:created_at)
+      if @dm_messages.without_music.length > 10
+        @over_ten = true
+        @dm_messages = DmMessage.where(id: @dm_messages.without_music[-10..-1].pluck(:id))
+      end
+      @over_ten = false
+      @collab_music = @conversation.dm_messages.music_only
       respond_to do |format|
         format.html {redirect_to request.referrer}
         format.js
@@ -58,5 +67,9 @@ class DmMessagesController < ApplicationController
 
   def dm_messages(conversation)
     @dm_messages = conversation.dm_messages
+  end
+
+  def latest_dm_messages
+    @dm_messages = DmMessage.where(id: @dm_messages[-10..-1].pluck(:id))
   end
 end

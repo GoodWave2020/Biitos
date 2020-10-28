@@ -4,6 +4,10 @@ class DmMessage < ApplicationRecord
   belongs_to :user
   has_many :notifications, dependent: :destroy
   validates_presence_of :body, :conversation_id, :user_id
+
+  scope :without_music, -> {where(collab_music: nil)}
+  scope :music_only, -> {where.not(collab_music: nil)}
+
   def dm_message_time
     created_at.strftime("%m/%d/%y at %l:%M %p")
   end

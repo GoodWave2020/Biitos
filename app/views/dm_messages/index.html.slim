@@ -6,7 +6,7 @@
       - else
         h3 to #{@conversation.recipient.name}
       - if @over_ten
-        = link_to t('views.dm_message.past_messages'), '?m=all'
+        = link_to t('views.dm_message.past_messages'), conversation_dm_messages_path(@conversation, m: "all")
       #dm_message_area
         = render 'dm_message_area', dm_messages: @dm_messages
       = form_with(model: [@conversation, @dm_message]) do |f|
@@ -20,4 +20,4 @@
         = f.submit "send", class: 'btn btn-primary'
     .col-md-6
       #music_area
-        = render 'music_area', {dm_messages: @dm_messages, conversation: @conversation}
+        = render 'music_area', {dm_messages: @collab_music, conversation: @conversation}
