@@ -1,9 +1,6 @@
 class DmMessagesController < ApplicationController
   before_action :authenticate_user!
-  before_action do
-    @conversation = Conversation.find(params[:conversation_id])
-  end
-  before_action :authenticate_user!
+  before_action :set_conversation
 
   def index
     check_friend(@conversation)
@@ -51,6 +48,9 @@ class DmMessagesController < ApplicationController
               filename: "#{@dm_message.body}.mp3", type: @dm_message.content_type
   end
   private
+  def set_conversation
+    @conversation = Conversation.find(params[:conversation_id])
+  end
   def dm_message_params
     params.require(:dm_message).permit(:body, :user_id, :collab_music)
   end
