@@ -4,16 +4,16 @@ class DmMessagesController < ApplicationController
 
   def index
     check_friend(@conversation)
-    @dm_messages = @conversation.dm_messages
+    dm_messages(@conversation)
     if @dm_messages.length > 10
       @over_ten = true
       @dm_messages = DmMessage.where(id: @dm_messages[-10..-1].pluck(:id))
     end
     if params[:m]
       @over_ten = false
-      @dm_messages = @conversation.dm_messages
+      dm_messages(@conversation)
     end
-    if @dm_messages.last
+    if @dm_messages.any?
       @dm_messages.where.not(user_id: current_user.id).update_all(read: true)
     end
     @dm_messages = @dm_messages.order(:created_at)
@@ -21,7 +21,7 @@ class DmMessagesController < ApplicationController
   end
   def create
     check_friend(@conversation)
-    @dm_messages = @conversation.dm_messages
+    dm_messages(@conversation)
     @dm_message = @conversation.dm_messages.build(dm_message_params)
     ######
     if @conversation.sender_id == current_user.id
@@ -51,7 +51,12 @@ class DmMessagesController < ApplicationController
   def set_conversation
     @conversation = Conversation.find(params[:conversation_id])
   end
+
   def dm_message_params
     params.require(:dm_message).permit(:body, :user_id, :collab_music)
+  end
+
+  def dm_messages(conversation)
+    @dm_messages = conversation.dm_messages
   end
 end
