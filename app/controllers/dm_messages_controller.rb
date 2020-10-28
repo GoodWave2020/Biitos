@@ -6,9 +6,10 @@ class DmMessagesController < ApplicationController
     check_friend(@conversation)
     dm_messages(@conversation)
     @dm_messages = @dm_messages.order(:created_at)
-    if @dm_messages.without_music.length > 10
+    @dm_messages_without_music = @dm_messages.without_music
+    if @dm_messages_without_music.length > 10
       @over_ten = true
-      @dm_messages = DmMessage.where(id: @dm_messages.without_music[-10..-1].pluck(:id))
+      @dm_messages = DmMessage.where(id: @dm_messages_without_music[-10..-1].pluck(:id))
     end
     if params[:m]
       @over_ten = false
