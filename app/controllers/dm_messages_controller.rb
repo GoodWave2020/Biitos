@@ -1,30 +1,30 @@
 class DmMessagesController < ApplicationController
   before_action :authenticate_user!
-  before_action do
-    @conversation = Conversation.find(params[:conversation_id])
-  end
-  before_action :authenticate_user!
+  before_action :set_conversation
 
   def index
     check_friend(@conversation)
-    @dm_messages = @conversation.dm_messages
-    if @dm_messages.length > 10
+    dm_messages(@conversation)
+    @dm_messages = @dm_messages.order(:created_at)
+    @dm_messages_without_music = @dm_messages.without_music
+    if @dm_messages_without_music.length > 10
       @over_ten = true
-      @dm_dm_messages = DmMessage.where(id: @dm_messages[-10..-1].pluck(:id))
+      @dm_messages = DmMessage.where(id: @dm_messages_without_music[-10..-1].pluck(:id))
     end
     if params[:m]
       @over_ten = false
-      @dm_messages = @conversation.dm_messages
+      dm_messages(@conversation)
     end
-    if @dm_messages.last
+    if @dm_messages.any?
       @dm_messages.where.not(user_id: current_user.id).update_all(read: true)
     end
-    @dm_messages = @dm_messages.order(:created_at)
     @dm_message = @conversation.dm_messages.build
+    @collab_music = @conversation.dm_messages.music_only
   end
+
   def create
     check_friend(@conversation)
-    @dm_messages = @conversation.dm_messages
+    dm_messages(@conversation)
     @dm_message = @conversation.dm_messages.build(dm_message_params)
     ######
     if @conversation.sender_id == current_user.id
@@ -35,6 +35,13 @@ class DmMessagesController < ApplicationController
     ######
     if @dm_message.save
       @conversation.save_notification_dm_message!(current_user, @dm_message.id, visited_id)
+      @dm_messages = @dm_messages.order(:created_at)
+      if @dm_messages.without_music.length > 10
+        @over_ten = true
+        @dm_messages = DmMessage.where(id: @dm_messages.without_music[-10..-1].pluck(:id))
+      end
+      @over_ten = false
+      @collab_music = @conversation.dm_messages.music_only
       respond_to do |format|
         format.html {redirect_to request.referrer}
         format.js
@@ -51,7 +58,19 @@ class DmMessagesController < ApplicationController
               filename: "#{@dm_message.body}.mp3", type: @dm_message.content_type
   end
   private
+  def set_conversation
+    @conversation = Conversation.find(params[:conversation_id])
+  end
+
   def dm_message_params
     params.require(:dm_message).permit(:body, :user_id, :collab_music)
+  end
+
+  def dm_messages(conversation)
+    @dm_messages = conversation.dm_messages
+  end
+
+  def latest_dm_messages
+    @dm_messages = DmMessage.where(id: @dm_messages[-10..-1].pluck(:id))
   end
 end

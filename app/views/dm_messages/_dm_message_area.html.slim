@@ -4,11 +4,12 @@
       .item
         .content
           .header
-            = image_tag message.user.icon.icon.url, class: 'icon'
-            strong = message.user.name
-            = message.dm_message_time
-            .list
-              .item
-                = message.body
-                - if message.user == current_user
-                  = message.read ? t('views.dm_message.read') : t('views.dm_message.not_to_read')
+            - if message.user.present?
+              = image_tag message.user.icon.icon.url, class: 'icon'
+              strong = message.user.name
+              = message.dm_message_time
+              .list
+                .item
+                  = message.body
+                  - if message.user == current_user
+                    = message.read ? t('views.dm_message.read') : t('views.dm_message.not_to_read')
