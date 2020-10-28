@@ -26,6 +26,7 @@ RSpec.describe 'DM機能(メッセージ機能)', type: :system do
         fill_in :dm_message_body, with: 'new message'
         attach_file :dm_message_collab_music, 'spec/fixtures/velvet_extended.mp3', make_visible: true
         click_on 'send'
+        sleep 10
         expect(page).to have_content 'download'
       end
     end
