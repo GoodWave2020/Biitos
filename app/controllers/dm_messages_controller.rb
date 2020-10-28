@@ -39,7 +39,6 @@ class DmMessagesController < ApplicationController
         format.html {redirect_to request.referrer}
         format.js
       end
-      #redirect_to conversation_dm_messages_path(@conversation)
     else
       flash.now[:notice] = t('controller.public.please_fill_in_the_the_comment')
       redirect_to conversation_dm_messages_path, notice: t('controller.public.please_fill_in_the_the_comment')
