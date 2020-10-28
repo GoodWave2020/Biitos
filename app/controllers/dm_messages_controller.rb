@@ -7,7 +7,7 @@ class DmMessagesController < ApplicationController
     @dm_messages = @conversation.dm_messages
     if @dm_messages.length > 10
       @over_ten = true
-      @dm_dm_messages = DmMessage.where(id: @dm_messages[-10..-1].pluck(:id))
+      @dm_messages = DmMessage.where(id: @dm_messages[-10..-1].pluck(:id))
     end
     if params[:m]
       @over_ten = false
