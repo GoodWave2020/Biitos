@@ -1,7 +1,6 @@
 class DmMessagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_conversation
-
   def index
     check_friend(@conversation)
     dm_messages(@conversation)
@@ -26,13 +25,11 @@ class DmMessagesController < ApplicationController
     check_friend(@conversation)
     dm_messages(@conversation)
     @dm_message = @conversation.dm_messages.build(dm_message_params)
-    ######
     if @conversation.sender_id == current_user.id
       visited_id = @conversation.recipient_id
     else
       visited_id = @conversation.sender_id
     end
-    ######
     if @dm_message.save
       @conversation.save_notification_dm_message!(current_user, @dm_message.id, visited_id)
       @dm_messages = @dm_messages.order(:created_at)
@@ -68,9 +65,5 @@ class DmMessagesController < ApplicationController
 
   def dm_messages(conversation)
     @dm_messages = conversation.dm_messages
-  end
-
-  def latest_dm_messages
-    @dm_messages = DmMessage.where(id: @dm_messages[-10..-1].pluck(:id))
   end
 end
