@@ -1,15 +1,14 @@
-.ui.segment
-  - dm_messages.each do |message|
-    - unless message.collab_music.present?
-      .item
-        .content
-          .header
-            - if message.user.present?
-              = image_tag message.user.icon.icon.url, class: 'icon'
-              strong = message.user.name
-              = message.dm_message_time
-              .list
-                .item
-                  = message.body
-                  - if message.user == current_user
-                    = message.read ? t('views.dm_message.read') : t('views.dm_message.not_to_read')
+- dm_messages.each do |message|
+  - unless message.collab_music.present?
+    .item
+      .content
+        .header
+          - if message.user.present?
+            = image_tag message.user.icon.icon.url, class: 'icon'
+            strong = message.user.name
+            = message.dm_message_time
+            .list
+              .item
+                = message.body
+                - if message.user == current_user
+                  = message.read ? t('views.dm_message.read') : t('views.dm_message.not_to_read')
