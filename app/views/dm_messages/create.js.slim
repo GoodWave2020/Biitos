@@ -1,5 +1,6 @@
 | $("#dm_message_area").html("#{ escape_javascript(render 'dm_messages/dm_message_area', dm_messages: @dm_messages )}");
 | $("#music_area").html("#{escape_javascript(render 'dm_messages/music_area', { dm_messages: @collab_music, conversation: @conversation} )}");
+| $('#over_ten').html("#{escape_javascript(render 'dm_messages/over_ten',{over_ten: @over_ten, conversation: @conversation})}");
 | audiojs.events.ready(function() {
 |   var as = audiojs.createAll();
 | });

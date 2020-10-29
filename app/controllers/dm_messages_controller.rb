@@ -37,7 +37,6 @@ class DmMessagesController < ApplicationController
         @over_ten = true
         @dm_messages = DmMessage.where(id: @dm_messages.without_music[-10..-1].pluck(:id))
       end
-      @over_ten = false
       @collab_music = @conversation.dm_messages.music_only
       respond_to do |format|
         format.html {redirect_to request.referrer}
