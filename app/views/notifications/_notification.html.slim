@@ -20,7 +20,7 @@
         - else
           span
             = link_to post_path(notification.post) do
-              = image_tag avatar_url(notification.post.user).to_s, class: "icon_mini"
+              = image_tag notification.post.user.icon.icon.url, class: "icon"
               strong
                 = notification.post.user.name + t('views.notification.s_post')
         = t('views.notification.commented')
