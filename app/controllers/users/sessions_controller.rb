@@ -2,7 +2,14 @@
 
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-
+  def new_guest
+    user = User.find(1)
+    user.update(name: 'Guest') do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
+    sign_in user
+    redirect_to posts_path
+  end
   # GET /resource/sign_in
   # def new
   #   super
