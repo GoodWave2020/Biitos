@@ -8,25 +8,29 @@ Biitosはあなたの声に必要な曲、曲に必要な声を探せるアプ�
 投稿からお気に入りの音源を探してユーザーをフォロー。マッチ後曲を渡しあうことができます。
 ### コンセプト
 気に入った作曲者、ボーカリスト、ラッパーなどと素早く音楽製作を始められる。
-### バージョン
-Ruby 2.6.5 Rails 5.2.4
 ### ログイン用ユーザー
 DM(ダイレクトメール)機能を確認する際にお使いください。
 ヘッダーのユーザー名からDM(ダイレクトメール)一覧に飛びます。
 - email: number4@tuner.com pass: password
 - email: number0@voicer.com pass: password
+### 使用技術
+- Ruby 2.6.5
+- Ruby on Rails 5.2.4
+- jQuery
+- Bootstrap4
+- PostgreSQL
+- AWS(VPC, RDS, ES2, S3, ALB, Route53, ACM)
+- Docker/docker-compose
 ### 機能一覧
 - 音楽投稿機能
 - 音楽再生
 - 投稿一覧
 - 投稿検索
 - ログイン機能
-- ページネーション(未実装)
 - フォロー機能
 - ユーザー詳細
 - お気に入り機能(Ajax)
 - 通知機能
-- SNSログイン機能(未実装)
 - DM機能
 - 音楽ダウンロード機能
 - コメント機能
@@ -34,11 +38,16 @@ DM(ダイレクトメール)機能を確認する際にお使いください。
 - タグ機能
   投稿にタグ付けが可能
 - ジャンル機能
-- ランキング機能(未実装)
-- オススメユーザー機能(未実装)
-- 好きなアーティストが似ているユーザーを表示(未実装)
 ### システム構成
 ![システム構成](https://user-images.githubusercontent.com/65487142/97112337-13e6fa80-1727-11eb-8490-6afd2d994770.jpg)
+### 制作背景
+現在音楽シーンにおいてSNSは切っても切り離せないツールです。音楽製作においてもそれは同じであり、
+SoundCloud, Instagram, Twitterなどからアーティストやプロデューサーを知り、直接連絡を取って音楽を製作することもあります。
+しかし、音楽ファイルのやり取りについてはメールや別のクラウドストレージを使うなどしてアプリを複数使ってのやり取りとなります。
+この煩雑さを解消し、その場で見つけたミュージシャン同士のコミュニケーションをスムーズに行えるアプリを作りたいと考えました。
+### このアプリで解決できること
+投稿された音楽から、気に入ったユーザーをフォローし、相手のユーザーもフォローした状態(マッチングが成立した場合)でDMにて音楽を渡す(ダウンロード)ことができる。
+従来のSNSのように様々なミュージシャンの作品を閲覧でき、マッチングした相手とアプリ内で素早く曲を渡しあえることができる。
 ### カタログ設計
 https://docs.google.com/spreadsheets/d/16wwKR8sxm-Q8o30x6buVFDllLR5vcxwePHugEuG_kWQ/edit?usp=sharing
 ### テーブル定義
@@ -49,7 +58,7 @@ https://docs.google.com/spreadsheets/d/1kjWCu8uAHo0Ud9fxpyxO7CPkayP4vbM6m1mG8X4s
 https://docs.google.com/spreadsheets/d/10jI90SKZRfCtVRQqNBoIjIcfjp_pAgeD56lA4QoShzM/edit?usp=sharing
 ### ワイヤーフレーム
 https://docs.google.com/spreadsheets/d/1gpwRvZRek0DiApa-pT1f58Lk7cLqKueKPlFY5robQmM/edit?usp=sharing
-### 使用予定Gem
+### 使用Gem
 - carrierwave
 - mini_magick
 - devise
