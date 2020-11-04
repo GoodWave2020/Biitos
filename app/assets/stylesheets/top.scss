@@ -43,7 +43,15 @@
   color: #00edb5;
   font-family: "Yu Mincho";
   letter-spacing: 6px;
+}
 
+.guest {
+  height: 38px;
+  position: absolute;
+  top: 600px;
+  right: 0px;
+  bottom: 0;
+  left: 0;
 }
 
 .login-signup {
@@ -62,7 +70,7 @@
 .index-btn {
   height: 38px;
   position: absolute;
-  top: 600px;
+  top: 650px;
   right: 0px;
   bottom: 0;
   left: 0;

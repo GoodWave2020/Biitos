@@ -8,3 +8,5 @@
     = link_to "Sign up", new_user_registration_path, class: 'btn btn-secondary signup'
   .index-btn
     = link_to t('views.public.go_to_the_index'), posts_path, class: 'btn btn-warning'
+  .guest
+    = link_to 'テストログイン', users_guest_sign_in_path, method: :post, class:"btn btn-success"
