@@ -48,16 +48,11 @@ SoundCloud, Instagram, Twitterなどからアーティストやプロデュー�
 ### このアプリで解決できること
 投稿された音楽から、気に入ったユーザーをフォローし、相手のユーザーもフォローした状態(マッチングが成立した場合)でDMにて音楽を渡す(ダウンロード)ことができる。
 従来のSNSのように様々なミュージシャンの作品を閲覧でき、マッチングした相手とアプリ内で素早く曲を渡しあえることができる。
-### カタログ設計
-https://docs.google.com/spreadsheets/d/16wwKR8sxm-Q8o30x6buVFDllLR5vcxwePHugEuG_kWQ/edit?usp=sharing
-### テーブル定義
-https://docs.google.com/spreadsheets/d/1Dt5IyWLdRef8ePar9VVMylWH2-7twJJG2WjFJ9Gy780/edit?usp=sharing
+### こだわりポイント
+ダイレクトメッセージの画面で音楽の共有のためにS3に保存した音楽ファイルをダウンロードできる機能を付けています。
+他のクラウドストレージサービスを使うことなく音楽の共有ができます。
 ### ER図
 ![20201011ER図](https://user-images.githubusercontent.com/65487142/98086594-585e5d00-1ec2-11eb-9f3e-c05834ebd955.png)
-### 画面遷移図
-https://docs.google.com/spreadsheets/d/10jI90SKZRfCtVRQqNBoIjIcfjp_pAgeD56lA4QoShzM/edit?usp=sharing
-### ワイヤーフレーム
-https://docs.google.com/spreadsheets/d/1gpwRvZRek0DiApa-pT1f58Lk7cLqKueKPlFY5robQmM/edit?usp=sharing
 ### 使用Gem
 - carrierwave
 - mini_magick
@@ -67,6 +62,14 @@ https://docs.google.com/spreadsheets/d/1gpwRvZRek0DiApa-pT1f58Lk7cLqKueKPlFY5rob
 - carrierwave-audio
 - slim-rails
 - font-awesome-sass
+### カタログ設計
+https://docs.google.com/spreadsheets/d/16wwKR8sxm-Q8o30x6buVFDllLR5vcxwePHugEuG_kWQ/edit?usp=sharing
+### テーブル定義
+https://docs.google.com/spreadsheets/d/1Dt5IyWLdRef8ePar9VVMylWH2-7twJJG2WjFJ9Gy780/edit?usp=sharing
+### 画面遷移図
+https://docs.google.com/spreadsheets/d/10jI90SKZRfCtVRQqNBoIjIcfjp_pAgeD56lA4QoShzM/edit?usp=sharing
+### ワイヤーフレーム
+https://docs.google.com/spreadsheets/d/1gpwRvZRek0DiApa-pT1f58Lk7cLqKueKPlFY5robQmM/edit?usp=sharing
 ### Dependency
 - SoX
 - Bash (for process substitution combiner strategy)
