@@ -1,0 +1,7 @@
+/public/assets
+/public/uploads
+/node_modules
+/log
+/.bundle
+/yarn-error.log
+/.env

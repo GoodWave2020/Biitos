@@ -1,0 +1,29 @@
+version: 2
+services:
+  app:
+    image: 057158456624.dkr.ecr.ap-northeast-1.amazonaws.com/biitos-rails:latest
+    command: bash -c "bundle exec rails db:migrate && bundle exec rails assets:precompile && bundle exec puma -C config/puma.rb"
+    env_file:
+      ../.env
+    working_dir: /Biitos
+    logging:
+      driver: awslogs
+      options:
+        awslogs-region: ap-northeast-1
+        awslogs-group: Biitos-production/app
+        awslogs-stream-prefix: Biitos-production
+  nginx:
+    image: 057158456624.dkr.ecr.ap-northeast-1.amazonaws.com/biitos-nginx:latest
+    ports:
+      - 80:80
+    links:
+      - app
+    volumes_from:
+      - app
+    working_dir: /Biitos
+    logging:
+      driver: awslogs
+      options:
+        awslogs-region: ap-northeast-1
+        awslogs-group: Biitos-production/nginx
+        awslogs-stream-prefix: Biitos-production
